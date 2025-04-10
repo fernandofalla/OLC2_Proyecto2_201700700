@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "0ukUOFFOaZc=",
+  "success": true,
+  "projectFilePath": "/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/backend.csproj",
+  "expectedPackageFiles": [
+    "/home/luispc/.nuget/packages/antlr4.runtime.standard/4.13.1/antlr4.runtime.standard.4.13.1.nupkg.sha512",
+    "/home/luispc/.nuget/packages/microsoft.aspnetcore.openapi/9.0.2/microsoft.aspnetcore.openapi.9.0.2.nupkg.sha512",
+    "/home/luispc/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

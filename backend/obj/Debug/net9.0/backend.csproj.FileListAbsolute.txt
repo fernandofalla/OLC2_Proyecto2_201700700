@@ -1,0 +1,139 @@
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/appsettings.Development.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/appsettings.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.staticwebassets.endpoints.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.exe
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.deps.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.runtimeconfig.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.dll
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.pdb
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/Microsoft.OpenApi.dll
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.csproj.AssemblyReference.cache
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.GeneratedMSBuildEditorConfig.editorconfig
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.AssemblyInfoInputs.cache
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.AssemblyInfo.cs
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.csproj.CoreCompileInputs.cache
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cs
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cache
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.sourcelink.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/scopedcss/bundle/backend.styles.css
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.build.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.development.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.build.backend.props
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.backend.props
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.backend.props
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.pack.json
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.csproj.Up2Date
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.dll
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/refint/backend.dll
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.pdb
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.genruntimeconfig.cache
+D:/USAC/OLC2/LABORATORIO/PROYECTO 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/ref/backend.dll
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/appsettings.Development.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/appsettings.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.staticwebassets.endpoints.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.deps.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.runtimeconfig.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.dll
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.pdb
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.csproj.AssemblyReference.cache
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.GeneratedMSBuildEditorConfig.editorconfig
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.AssemblyInfoInputs.cache
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.AssemblyInfo.cs
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.csproj.CoreCompileInputs.cache
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cs
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cache
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.sourcelink.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/scopedcss/bundle/backend.styles.css
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.build.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.development.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.build.backend.props
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.backend.props
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.backend.props
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.pack.json
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.csproj.Up2Date
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.dll
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/refint/backend.dll
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.pdb
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.genruntimeconfig.cache
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/ref/backend.dll
+/home/luispc/Documentos/OLC2/PROYECTOS/Proyecto 1/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/Antlr4.Runtime.Standard.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/appsettings.Development.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/appsettings.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.staticwebassets.endpoints.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.deps.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.runtimeconfig.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/backend.pdb
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/Antlr4.Runtime.Standard.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.csproj.AssemblyReference.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.GeneratedMSBuildEditorConfig.editorconfig
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.AssemblyInfoInputs.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.AssemblyInfo.cs
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.csproj.CoreCompileInputs.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cs
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.sourcelink.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/scopedcss/bundle/backend.styles.css
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.build.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.development.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.build.backend.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.backend.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.backend.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/staticwebassets.pack.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.csproj.Up2Date
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/refint/backend.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.pdb
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/backend.genruntimeconfig.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto1_201700700/backend/obj/Debug/net9.0/ref/backend.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/appsettings.Development.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/appsettings.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/backend.staticwebassets.endpoints.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/backend
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/backend.deps.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/backend.runtimeconfig.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/backend.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/backend.pdb
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/Antlr4.Runtime.Standard.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.csproj.AssemblyReference.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.GeneratedMSBuildEditorConfig.editorconfig
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.AssemblyInfoInputs.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.AssemblyInfo.cs
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.csproj.CoreCompileInputs.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cs
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.sourcelink.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/scopedcss/bundle/backend.styles.css
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/staticwebassets.build.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/staticwebassets.development.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.backend.Microsoft.AspNetCore.StaticWebAssets.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.build.backend.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.backend.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.backend.props
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/staticwebassets.pack.json
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.csproj.Up2Date
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/refint/backend.dll
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.pdb
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/backend.genruntimeconfig.cache
+/home/luispc/Documentos/OLC2/LABORATORIO/GIT/OLC2_Proyecto2_201700700/backend/obj/Debug/net9.0/ref/backend.dll

@@ -1,58 +1,19 @@
- .text
+.text
 .global _start
 _start:
+// Variable: a
 // Constant: 1
 MOV x0, #1
 STR x0, [SP, #-8]!
-// Constant: 2
-MOV x0, #2
+// Print statement
+// Visiting expression
+// Variable: a
+// Offset: 0
+MOV x0, #0
+ADD x0, sp, x0
+LDR x0, [x0, #0]
 STR x0, [SP, #-8]!
-LDR x1, [SP], #8
-LDR x0, [SP], #8
-ADD x0, x0, x1
-STR x0, [SP, #-8]!
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-LDR x1, [SP], #8
-LDR x0, [SP], #8
-ADD x0, x0, x1
-STR x0, [SP, #-8]!
-// Constant: 2
-MOV x0, #2
-STR x0, [SP, #-8]!
-LDR x1, [SP], #8
-LDR x0, [SP], #8
-ADD x0, x0, x1
-STR x0, [SP, #-8]!
-// Constant: 3
-MOV x0, #3
-STR x0, [SP, #-8]!
-LDR x1, [SP], #8
-LDR x0, [SP], #8
-ADD x0, x0, x1
-STR x0, [SP, #-8]!
-// Constant: 4
-MOV x0, #4
-STR x0, [SP, #-8]!
-LDR x1, [SP], #8
-LDR x0, [SP], #8
-ADD x0, x0, x1
-STR x0, [SP, #-8]!
-// Constant: 5
-MOV x0, #5
-STR x0, [SP, #-8]!
-LDR x1, [SP], #8
-LDR x0, [SP], #8
-ADD x0, x0, x1
-STR x0, [SP, #-8]!
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-LDR x1, [SP], #8
-LDR x0, [SP], #8
-ADD x0, x0, x1
-STR x0, [SP, #-8]!
+// Popping expression
 LDR x0, [SP], #8
 MOV X0, x0
 BL print_integer

@@ -37,6 +37,20 @@ public class ArmGenerator
                 break;
             case StackObject.StackObjectType.String:
                 // TODO: Handle string
+                List<byte> stringArray = Utils.StringTo1ByteArray((string)value);
+                Push(Register.HP);
+                for(int i = 0; i < stringArray.Count; i++)
+                {
+                    var charCode = stringArray[i];
+
+                    Comment("Pushing string array (chars) to heap");
+
+                    Mov("w0", charCode);
+                    Strb("w0", Register.HP);
+                    Mov(Register.X0, 1);
+                    Add(Register.HP, Register.HP, Register.X0);
+
+                }
                 break;
 
         }
@@ -203,6 +217,10 @@ public class ArmGenerator
     {
         instructions.Add($"STR {rs1}, [{rs2}, #{offset}]");
     }
+    public void Strb(string rs1, string rs2)
+    {
+        instructions.Add($"STRB {rs1}, [{rs2}]");
+    }
     public void Ldr(string rd, string rs1, int offset = 0)
     {
         instructions.Add($"LDR {rd}, [{rs1}, #{offset}]");
@@ -237,6 +255,12 @@ public class ArmGenerator
         instructions.Add($"MOV X0, {rs}");
         instructions.Add($"BL print_integer");
     }
+    public void PrintString(string rs)
+    {
+        stdLib.Use("print_string");
+        instructions.Add($"MOV X0, {rs}");
+        instructions.Add($"BL print_string");
+    }
     public void Comment(string comment)
     {
         instructions.Add($"// {comment}");
@@ -244,9 +268,12 @@ public class ArmGenerator
     public override string ToString()
     {
         var sb = new StringBuilder();
+        sb.AppendLine(".data");
+        sb.AppendLine("heap: .space 4096");
         sb.AppendLine(".text");
         sb.AppendLine(".global _start");
         sb.AppendLine("_start:");
+        sb.AppendLine("    ADR x10, heap");
 
         EndProgram();
         foreach (var instruction in instructions)

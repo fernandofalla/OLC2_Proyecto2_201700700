@@ -12,7 +12,7 @@
     public static string X7 = "x7";
     public static string X8 = "x8";
     public static string X9 = "x9";
-    public static string X10 = "x10";
+    public static string HP = "x10"; // Heap Pointer
     public static string X11 = "x11";
     public static string X12 = "x12";
     public static string X13 = "x13";
@@ -43,22 +43,22 @@
     public static string FP = "x29";
     public static string LR = "x30";
 
-    public static string[] GeneralPurposeRegisters = new string[]
-    {
-        X0, X1, X2, X3, X4, X5, X6, X7,
-        X8, X9, X10, X11, X12, X13, X14,
-        X15, X16, X17, X18, X19, X20,
-        X21, X22, X23, X24, X25, X26,
-        X27, X28
-    };
-    public static string[] AllRegisters = new string[]
-    {
-        X0, X1, X2, X3, X4, X5, X6, X7,
-        X8, X9, X10, X11, X12, X13, X14,
-        X15, X16, X17, X18, X19, X20,
-        X21, X22, X23, X24, X25, X26,
-        X27, X28, SP
-    };
+    // public static string[] GeneralPurposeRegisters = new string[]
+    // {
+    //     X0, X1, X2, X3, X4, X5, X6, X7,
+    //     X8, X9, X10, X11, X12, X13, X14,
+    //     X15, X16, X17, X18, X19, X20,
+    //     X21, X22, X23, X24, X25, X26,
+    //     X27, X28
+    // };
+    // public static string[] AllRegisters = new string[]
+    // {
+    //     X0, X1, X2, X3, X4, X5, X6, X7,
+    //     X8, X9, X10, X11, X12, X13, X14,
+    //     X15, X16, X17, X18, X19, X20,
+    //     X21, X22, X23, X24, X25, X26,
+    //     X27, X28, SP
+    // };
     
     public static string V0 = "v0";
     public static string V1 = "v1"; 

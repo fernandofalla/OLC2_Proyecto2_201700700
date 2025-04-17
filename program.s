@@ -17,6 +17,19 @@ STR x0, [SP, #-8]!
 LDR x0, [SP], #8
 MOV X0, x0
 BL print_integer
+// Visiting block
+// Print statement
+// Visiting expression
+// Variable: a
+// Offset: 0
+MOV x0, #0
+ADD x0, sp, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Popping expression
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_integer
 MOV x0, #0
 MOV x8, #93
 SVC #0

@@ -154,6 +154,12 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
     public override Object? VisitCadena(LanguageParser.CadenaContext context)
     {
+        var value = context.STRING().GetText().Trim('"');
+        c.Comment("Constant: " + value);
+
+        var stringObject = c.StringObject();
+        c.PushConstant(stringObject, value);
+        
         return null;
     }
 

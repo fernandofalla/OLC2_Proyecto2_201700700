@@ -31,8 +31,11 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         if(value.Type == StackObject.StackObjectType.Int)
         {
             c.PrintInteger(Register.X0);
-        }                    
-
+        }  
+        else if(value.Type == StackObject.StackObjectType.String)
+        {
+            c.PrintString(Register.X0);
+        }                  
         
         return null;
     }
@@ -159,7 +162,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
         var stringObject = c.StringObject();
         c.PushConstant(stringObject, value);
-        
+
         return null;
     }
 

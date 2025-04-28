@@ -19,6 +19,11 @@ public class ArmGenerator
 
     // Stack operations
 
+    public StackObject TopObject()
+    {
+        return stack.Last();
+    }
+
     public void PushObject(StackObject obj)
     {
         stack.Add(obj);
@@ -33,13 +38,26 @@ public class ArmGenerator
                 Push(Register.X0);
                 break;
             case StackObject.StackObjectType.Float:
-                // TODO: Handle float
+                long floatBits = BitConverter.DoubleToInt64Bits((double)value);
+                short[] floatParts = new short[4];
+                for (int i = 0; i < 4; i++)
+                {
+                    floatParts[i] = (short)((floatBits >> (i * 16)) & 0xFFFF);
+                }
+
+                instructions.Add($"MOVZ X0, #{floatParts[0]}, LSL #0");
+                for (int i = 1; i < 4; i++)
+                {
+                    instructions.Add($"MOVK X0, #{floatParts[i]}, LSL #{i * 16}");
+                }
+                Push(Register.X0);
+
                 break;
             case StackObject.StackObjectType.String:
                 // TODO: Handle string
                 List<byte> stringArray = Utils.StringTo1ByteArray((string)value);
                 Push(Register.HP);
-                for(int i = 0; i < stringArray.Count; i++)
+                for (int i = 0; i < stringArray.Count; i++)
                 {
                     var charCode = stringArray[i];
 
@@ -169,7 +187,7 @@ public class ArmGenerator
             {
                 return (i, stack[i]);
             }
-            
+
             byteOffset += stack[i].Length;
 
         }
@@ -239,6 +257,30 @@ public class ArmGenerator
     {
         instructions.Add($"LDR {rd}, [SP], #8");
     }
+    public void Scvtf(string rd, string rs)
+    {
+        instructions.Add($"SCVTF {rd}, {rs}");
+    }
+    public void Fmov(string rd, string rs)
+    {
+        instructions.Add($"FMOV {rd}, {rs}");
+    }
+    public void Fadd(string rd, string rs1, string rs2)
+    {
+        instructions.Add($"FADD {rd}, {rs1}, {rs2}");
+    }
+    public void Fsub(string rd, string rs1, string rs2)
+    {
+        instructions.Add($"FSUB {rd}, {rs1}, {rs2}");
+    }
+    public void Fmul(string rd, string rs1, string rs2)
+    {
+        instructions.Add($"FMUL {rd}, {rs1}, {rs2}");
+    }
+    public void Fdiv(string rd, string rs1, string rs2)
+    {
+        instructions.Add($"FDIV {rd}, {rs1}, {rs2}");
+    }
     public void Svc()
     {
         instructions.Add($"SVC #0");
@@ -260,6 +302,12 @@ public class ArmGenerator
         stdLib.Use("print_string");
         instructions.Add($"MOV X0, {rs}");
         instructions.Add($"BL print_string");
+    }
+    public void PrintFloat(string rs)
+    {
+        stdLib.Use("print_integer");
+        stdLib.Use("print_double");        
+        instructions.Add($"BL print_double");
     }
     public void Comment(string comment)
     {

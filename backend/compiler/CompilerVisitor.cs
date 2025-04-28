@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Text.RegularExpressions;
 using analyzer;
 
@@ -13,7 +14,8 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
     // VisitProgram
     public override Object? VisitProgram(LanguageParser.ProgramContext context)
     {
-        foreach (var dcl in context.dcl()){
+        foreach (var dcl in context.dcl())
+        {
             Visit(dcl);
         }
         return null;
@@ -28,15 +30,19 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         c.Comment("Popping expression");
         var value = c.PopObject(Register.X0); // x0 = 1 + 2
 
-        if(value.Type == StackObject.StackObjectType.Int)
+        if (value.Type == StackObject.StackObjectType.Int)
         {
             c.PrintInteger(Register.X0);
-        }  
-        else if(value.Type == StackObject.StackObjectType.String)
+        }
+        else if (value.Type == StackObject.StackObjectType.Float)
+        {
+            c.PrintFloat(Register.D0);
+        }
+        else if (value.Type == StackObject.StackObjectType.String)
         {
             c.PrintString(Register.X0);
-        }                  
-        
+        }
+
         return null;
     }
 
@@ -47,7 +53,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
         Visit(context.expr());
         c.TagObject(id);
-        
+
         return null;
     }
 
@@ -55,7 +61,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
     {
         var id = context.ID().GetText();
         c.Comment("Variable: " + id);
-        
+
         Visit(context.expr());
         c.TagObject(id);
 
@@ -67,7 +73,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         Visit(context.expr());
         c.Comment("Popping expression");
         c.PopObject(Register.X0); // x0 = 1 + 2
-        
+
         return null;
     }
 
@@ -83,7 +89,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
         int bytesToRemove = c.endScope();
 
-        if(bytesToRemove > 0)
+        if (bytesToRemove > 0)
         {
             c.Comment("Removing " + bytesToRemove + " bytes from stack");
             c.Mov(Register.X0, bytesToRemove);
@@ -111,7 +117,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         c.Add(Register.X0, Register.SP, Register.X0);
         c.Ldr(Register.X0, Register.X0); // Load value from variable
         c.Push(Register.X0); // Push value to stack
-    
+
         var newObject = c.CloneObject(obj);
         newObject.Id = null;
         c.PushObject(newObject); // Push object to stack
@@ -152,6 +158,13 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
     public override Object? VisitDecimal(LanguageParser.DecimalContext context)
     {
+        var value = context.DOUBLE().GetText();
+        c.Comment("Constant: " + value);
+
+        var floatObject = c.FloatObject();
+        c.PushConstant(floatObject, float.Parse(value));
+        c.Comment("Pushing float constant: " + value);
+
         return null;
     }
 
@@ -194,17 +207,39 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
 
         c.Comment("Popping operands");
-        var right = c.PopObject(Register.X1); // x1 = 2
-        var left = c.PopObject(Register.X0); // x0 = 1
+        var isRightDouble = c.TopObject().Type == StackObject.StackObjectType.Float;
+        var right = c.PopObject(isRightDouble ? Register.D0 : Register.X0); // x1 = 2
+        var isLeftDouble = c.TopObject().Type == StackObject.StackObjectType.Float;
+        var left = c.PopObject(isLeftDouble ? Register.D1 : Register.X1); // x0 = 1 
 
-        if(operation == "+")
+        if (isLeftDouble || isRightDouble)
+        {
+            if (!isLeftDouble) c.Scvtf(Register.D1, Register.X1); // Convert left to float
+            if (!isRightDouble) c.Scvtf(Register.D0, Register.X0); // Convert right to float
+
+            if (operation == "+")
+            {
+                c.Fadd(Register.D0, Register.D0, Register.D1);
+            }
+            else if (operation == "-")
+            {
+                c.Fsub(Register.D0, Register.D1, Register.D0);
+            }
+            c.Comment("Pushing result");
+            c.Push(Register.D0); // x0 = 1 + 2
+            c.PushObject(c.CloneObject(isLeftDouble ? left : right));
+
+            return null;
+        }
+
+        if (operation == "+")
         {
             c.Add(Register.X0, Register.X0, Register.X1);
         }
         else if (operation == "-")
         {
-            c.Sub(Register.X0, Register.X0, Register.X1);
-        }        
+            c.Sub(Register.X0, Register.X1, Register.X0);
+        }
 
         c.Comment("Pushing result");
         c.Push(Register.X0); // x0 = 1 + 2
@@ -232,7 +267,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
     {
         c.Comment("Assign");
         var id = context.ID();
-        
+
         if (id is LanguageParser.IdentifierContext idContext)
         {
             string varName = idContext.ID().GetText();
@@ -242,7 +277,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
             Visit(context.expr());
 
             var valueObject = c.PopObject(Register.X0); // x0 = 1 + 2
-            
+
             var (offset, varObject) = c.GetObject(varName);
 
             c.Mov(Register.X1, offset);
@@ -251,7 +286,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
             // varObject.Type = valueObject.Type;  
 
-            c.PushObject(c.CloneObject(varObject));          
+            c.PushObject(c.CloneObject(varObject));
         }
 
         return null;

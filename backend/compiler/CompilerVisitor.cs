@@ -125,7 +125,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         c.PopObject(Register.X0); // x0 = 1 + 2
 
         var hasElse = context.stmt().Length > 1;
-        if(hasElse)
+        if (hasElse)
         {
             var elseLabel = c.GetLabel();
             var endLabel = c.GetLabel();
@@ -352,7 +352,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         var truelabel = c.GetLabel();
         var endlabel = c.GetLabel();
 
-        switch(operation)
+        switch (operation)
         {
             case "<":
                 c.Blt(truelabel);
@@ -448,28 +448,25 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
     public override Object? VisitAssign(LanguageParser.AssignContext context)
     {
         c.Comment("Assign");
-        var id = context.ID();
 
-        if (id is LanguageParser.IdentifierContext idContext)
-        {
-            string varName = idContext.ID().GetText();
-            c.Comment("Variable: " + varName);
+        var varName = context.ID().GetText();
+        c.Comment("Variable: " + varName);
 
-            c.Comment("Visiting expression");
-            Visit(context.expr());
+        c.Comment("Visiting expression");
+        Visit(context.expr());
 
-            var valueObject = c.PopObject(Register.X0); // x0 = 1 + 2
+        var valueObject = c.PopObject(Register.X0); // x0 = 1 + 2
 
-            var (offset, varObject) = c.GetObject(varName);
+        var (offset, varObject) = c.GetObject(varName);
 
-            c.Mov(Register.X1, offset);
-            c.Add(Register.X1, Register.SP, Register.X1);
-            c.Str(Register.X0, Register.X1); // Store value in variable
+        c.Mov(Register.X1, offset);
+        c.Add(Register.X1, Register.SP, Register.X1);
+        c.Str(Register.X0, Register.X1); // Store value in variable
 
-            // varObject.Type = valueObject.Type;  
+        varObject.Type = valueObject.Type;
 
-            c.PushObject(c.CloneObject(varObject));
-        }
+        c.Push(Register.X0); // Push value to stack
+        c.PushObject(c.CloneObject(varObject));
 
         return null;
     }
@@ -498,15 +495,71 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
         continueLabel = prevContinueLabel;
         breakLabel = prevBreakLabel;
-        
+
 
         return null;
     }
 
     public override Object? VisitForStmtComplex(LanguageParser.ForStmtComplexContext context)
     {
+
+        /*
+            .. init (asignacion o declaracion)
+            startlabel:
+                .. condicion
+                if (condicion) gota endlabel
+                .. bloque
+                increment: (si es continue)
+                .. incremento
+                gota startlabel
+            endlabel:
+        */
+
         c.Comment("For complex statement");
-        
+
+        var startlabel = c.GetLabel();
+        var endlabel = c.GetLabel();
+        var incrementlabel = c.GetLabel();
+
+        var prevContinueLabel = continueLabel;
+        var prevBreakLabel = breakLabel;
+
+        continueLabel = incrementlabel;
+        breakLabel = endlabel;
+
+        c.Comment("Visiting init");
+        c.NewScope();
+
+        Visit(context.varDcl());
+        c.SetLabel(startlabel);
+
+        Visit(context.expr(0));
+        c.PopObject(Register.X0); // x0 = 1 + 2
+
+        c.Cbz(Register.X0, endlabel); // If x0 == 0, go to end
+
+        Visit(context.stmt());
+        c.SetLabel(incrementlabel); // Increment label
+
+        Visit(context.expr(1));
+        c.B(startlabel); // Go to start
+        c.SetLabel(endlabel); // End label
+
+
+        var bytesToRemove = c.endScope();
+        if (bytesToRemove > 0)
+        {
+            c.Comment("Removing " + bytesToRemove + " bytes from stack");
+            c.Mov(Register.X0, bytesToRemove);
+            c.Add(Register.SP, Register.SP, Register.X0);
+            c.Comment("New stack pointer: ");
+        }
+
+        continueLabel = prevContinueLabel;
+        breakLabel = prevBreakLabel;
+
+        c.Comment("End of for statement");
+
         return null;
     }
 
@@ -524,11 +577,21 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
     public override Object? VisitBreakStmt(LanguageParser.BreakStmtContext context)
     {
+        c.Comment("Break statement");
+        if (breakLabel != null)
+        {
+            c.B(breakLabel);
+        }
         return null;
     }
 
     public override Object? VisitContinueStmt(LanguageParser.ContinueStmtContext context)
     {
+        c.Comment("Continue statement");
+        if (continueLabel != null)
+        {
+            c.B(continueLabel);
+        }
         return null;
     }
 
@@ -611,6 +674,8 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
     public override Object? VisitIncrement(LanguageParser.IncrementContext context)
     {
+        c.Comment("Increment");
+
         return null;
     }
 

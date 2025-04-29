@@ -207,7 +207,7 @@ public class ArmGenerator
         {
             if (stack[i].Id == id)
             {
-                return (i, stack[i]);
+                return (byteOffset, stack[i]);
             }
 
             byteOffset += stack[i].Length;

@@ -3,10 +3,25 @@ using System.Collections.Generic;
 public class StandarLibrary
 {
     private readonly HashSet<string> UsedFunctions = new HashSet<string>();
+    private readonly HashSet<string> UsedSymbols = new HashSet<string>();
 
     public void Use(string function)
     {
         UsedFunctions.Add(function);
+        if (function == "print_integer")
+        {
+            UsedSymbols.Add("minus_sign");
+        }
+        else if (function == "print_double")
+        {
+            UsedSymbols.Add("dot_char");
+            UsedSymbols.Add("zero_char");
+        }
+        else if(function == "print_boolean")
+        {
+            UsedSymbols.Add("true_str");
+            UsedSymbols.Add("false_str");
+        }
     }
     public string GetFunctionDefinitions()
     {
@@ -18,7 +33,21 @@ public class StandarLibrary
                 functions.Add(definition);
             }
         }
-        return string.Join("\n\n", functions);
+
+        var fnDefs = string.Join("\n", functions);
+
+        var symbols = new List<string>();
+        foreach (var symbol in UsedSymbols)
+        {
+            if (Symbols.TryGetValue(symbol, out var definition))
+            {
+                symbols.Add(definition);
+            }
+        }
+
+        var symbolsDefs = string.Join("\n", symbols);
+
+        return fnDefs + "\n" + symbolsDefs;
     }
 
     private readonly static Dictionary<string, string> FunctionDefinitions = new Dictionary<string, string>
@@ -270,13 +299,47 @@ exit_function:
     ldp x19, x20, [sp], #16
     ldp x29, x30, [sp], #16
     ret
-    "},
+    "},{
+    "print_char", @"
+print_char:
+    stp x29, x30, [sp, #-16]!
+    mov x1, x0
+    mov x0, #1
+    mov x2, #1
+    mov x8, #64
+    svc #0
+    ldp x29, x30, [sp], #16
+    ret"
+},
+{
+    "print_boolean", @"
+print_boolean:
+    stp x29, x30, [sp, #-16]!
+    cmp x0, #0
+    beq false_label
+    // Print 'true'
+    adr x1, true_str
+    mov x2, #4
+    b print_end
+false_label:
+    // Print 'false'
+    adr x1, false_str
+    mov x2, #5
+print_end:
+    mov x0, #1
+    mov x8, #64
+    svc #0
+    ldp x29, x30, [sp], #16
+    ret"
+}
     };
 
     private readonly static Dictionary<string, string> Symbols = new Dictionary<string, string>
     {
         { "minus_sign", @"minus_sign: .ascii ""-""" },
         { "dot_char", @"dot_char: .ascii "".""" },
-        { "zero_char", @"zero_char: .ascii ""0""" }
+        { "zero_char", @"zero_char: .ascii ""0""" },
+        { "true_str", @"true_str: .ascii ""true""" },
+        { "false_str", @"false_str: .ascii ""false""" }
     };
 }

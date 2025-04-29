@@ -127,4 +127,13 @@ public static class Register
    public static string D29 = "d29";
    public static string D30 = "d30";
    public static string D31 = "d31";
+
+   // x32 registers
+   
+   public static string W0 = "w0";
+   public static string W1 = "w1";
+   public static string W2 = "w2";
+   public static string W3 = "w3";
+   public static string W4 = "w4";
+   public static string W5 = "w5";
 }

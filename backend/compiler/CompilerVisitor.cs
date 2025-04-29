@@ -11,6 +11,10 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
     private String? breakLabel = null;
     private String? returnLabel = null;
 
+    private Dictionary<string, FunctionMetadata> functions = new Dictionary<string, FunctionMetadata>();
+    private string? insideFunction = null;
+    private int framePointerOffset = 0;
+
     public CompilerVisitor()
     {
 
@@ -686,6 +690,12 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
     public override Object? VisitFunctionDclInit(LanguageParser.FunctionDclInitContext context)
     {
+        int baseOffset = 2;
+        int paramsOffset = 0;
+        if(context.@params() != null)
+        {
+            paramsOffset = context.@params().ID().Length;
+        }
         return null;
     }
 

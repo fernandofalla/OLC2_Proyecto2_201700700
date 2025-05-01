@@ -1,15 +1,24 @@
+using System.ComponentModel;
 using System.Numerics;
 using System.Text.RegularExpressions;
 using analyzer;
+using Antlr4.Runtime.Misc;
+using Antlr4.Runtime.Tree;
+
+public class FunctionMetadata
+{
+    public int FrameSize;
+    public StackObject.StackObjectType ReturnType;
+}
 
 public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> Object?
 {
 
     public ArmGenerator c = new ArmGenerator();
 
-    private String? continueLabel = null;
-    private String? breakLabel = null;
-    private String? returnLabel = null;
+    private string continueLabel = "";
+    private string breakLabel = "";
+    private string returnLabel = "";
 
     private Dictionary<string, FunctionMetadata> functions = new Dictionary<string, FunctionMetadata>();
     private string? insideFunction = null;
@@ -74,6 +83,23 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         c.Comment("Variable: " + id);
 
         Visit(context.expr());
+
+        if (insideFunction != null)
+        {
+            var localObject = c.GetFrameLocal(framePointerOffset);
+            var valueObject = c.PopObject(Register.X0);
+
+            // c.Mov(Register.X1, localObject.Offset * 8);
+            c.Mov(Register.X1, framePointerOffset * 8);
+            c.Sub(Register.X1, Register.FP, Register.X1);
+            c.Str(Register.X0, Register.X1); // Store value in variable
+
+            localObject.Type = valueObject.Type;
+            framePointerOffset++;
+
+            return null;
+        }
+
         c.TagObject(id);
 
         return null;
@@ -85,6 +111,23 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         c.Comment("Variable: " + id);
 
         Visit(context.expr());
+
+        if (insideFunction != null)
+        {
+            var localObject = c.GetFrameLocal(framePointerOffset);
+            var valueObject = c.PopObject(Register.X0);
+
+            // c.Mov(Register.X1, localObject.Offset * 8);
+            c.Mov(Register.X1, framePointerOffset * 8);
+            c.Sub(Register.X1, Register.FP, Register.X1);
+            c.Str(Register.X0, Register.X1); // Store value in variable
+
+            localObject.Type = valueObject.Type;
+            framePointerOffset++;
+
+            return null;
+        }
+
         c.TagObject(id);
 
         return null;
@@ -164,8 +207,23 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         var (offset, obj) = c.GetObject(id);
         c.Comment("Offset: " + offset);
 
+        if (insideFunction != null)
+        {
+            c.Mov(Register.X0, obj.Offset * 8);
+            c.Sub(Register.X0, Register.FP, Register.X0);
+
+            c.Ldr(Register.X0, Register.X0); // Load value from variable
+            c.Push(Register.X0); // Push value to stack
+
+            var cloneObject = c.CloneObject(obj);
+            c.PushObject(cloneObject); // Push object to stack               
+
+            return null;
+        }
+
         c.Mov(Register.X0, offset);
         c.Add(Register.X0, Register.SP, Register.X0);
+
         c.Ldr(Register.X0, Register.X0); // Load value from variable
         c.Push(Register.X0); // Push value to stack
 
@@ -463,6 +521,14 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
         var (offset, varObject) = c.GetObject(varName);
 
+        if (insideFunction != null)
+        {
+            c.Mov(Register.X1, varObject.Offset * 8);
+            c.Sub(Register.X1, Register.FP, Register.X1);
+            c.Str(Register.X0, Register.X1); // Store value in variable            
+            return null;
+        }
+
         c.Mov(Register.X1, offset);
         c.Add(Register.X1, Register.SP, Register.X1);
         c.Str(Register.X0, Register.X1); // Store value in variable
@@ -601,11 +667,98 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
     public override Object? VisitReturnStmt(LanguageParser.ReturnStmtContext context)
     {
+        c.Comment("Return statement");
+        if(context.expr() == null)
+        {
+            c.B(returnLabel);
+            return null;            
+        }
+        if(insideFunction == null)
+        {
+            throw new Exception("Return statement outside function");                        
+        }
+
+        c.Comment("Visiting expression");
+        Visit(context.expr());
+        c.PopObject(Register.X0); // x0 = 1 + 2
+
+        var frameSize = functions[insideFunction].FrameSize;
+        var returnOffset = frameSize - 1;
+        c.Mov(Register.X1, returnOffset * 8);
+        c.Sub(Register.X1, Register.FP, Register.X1);
+        c.Str(Register.X0, Register.X1); // Store return value
+        c.B(returnLabel); // Go to return label
+
+        c.Comment("End of return statement");
         return null;
     }
 
     public override Object? VisitCallFunc(LanguageParser.CallFuncContext context)
     {
+        if (context.embebidaex().ID() == null) return null;
+        string funcName = context.embebidaex().ID().GetText();
+        var call = context.call();
+
+        var postFuncCallLabel = c.GetLabel();
+
+        int baseOffset = 2;
+        int stackElementSize = 8;
+
+        c.Mov(Register.X0, baseOffset * stackElementSize);
+        c.Sub(Register.SP, Register.SP, Register.X0);
+
+        if (call.args() != null)
+        {
+            c.Comment("Visiting args");
+            foreach (var param in call.args().expr())
+            {
+                Visit(param);
+            }
+        }
+
+        c.Mov(Register.X0, stackElementSize * (baseOffset + call.args().expr().Length));
+        c.Add(Register.SP, Register.SP, Register.X0);
+
+        c.Mov(Register.X0, stackElementSize);
+        c.Sub(Register.X0, Register.SP, Register.X0);
+
+        c.Adr(Register.X1, postFuncCallLabel);
+        c.Push(Register.X1);
+
+        c.Push(Register.FP);
+        c.Add(Register.FP, Register.X0, Register.XZR);
+
+        int frameSize = functions[funcName].FrameSize;
+        c.Mov(Register.X0, (frameSize - 2) * stackElementSize);
+        c.Sub(Register.SP, Register.SP, Register.X0);
+
+        c.Comment("Calling function: " + funcName);
+        c.Bl(funcName);
+        c.Comment("Function call: " + funcName);
+        c.SetLabel(postFuncCallLabel);
+
+        var returnOffset = frameSize - 1;
+        c.Mov(Register.X4, returnOffset * stackElementSize);
+        c.Sub(Register.X4, Register.FP, Register.X4);
+        c.Ldr(Register.X4, Register.X4); // Load return value
+
+        c.Mov(Register.X1, stackElementSize);
+        c.Sub(Register.X1, Register.FP, Register.X1);
+        c.Ldr(Register.FP, Register.X1); // Load frame pointer
+
+        c.Mov(Register.X0, stackElementSize * frameSize);
+        c.Add(Register.SP, Register.SP, Register.X0); // Remove frame from stack
+
+        c.Push(Register.X4); // Push return value to stack
+        c.PushObject(new StackObject{
+            Type = functions[funcName].ReturnType,
+            Id = null,
+            Offset = 0,
+            Length = 8
+        });
+
+        c.Comment("End of function call: " + funcName);
+
         return null;
     }
 
@@ -692,13 +845,127 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
     {
         int baseOffset = 2;
         int paramsOffset = 0;
-        if(context.@params() != null)
+        if (context.@params() != null)
         {
-            paramsOffset = context.@params().ID().Length;
+            var paramList = context.@params();
+            paramsOffset = 1;
+            paramsOffset += paramList.children.Count(hijo => hijo.GetText() == ",");
         }
+
+        FrameVisitor frameVisitor = new FrameVisitor(baseOffset + paramsOffset);
+
+        foreach (var dcl in context.dcl())
+        {
+            frameVisitor.Visit(dcl);
+        }
+
+        var frame = frameVisitor.Frame;
+        int localOffset = frame.Count;
+        int returnOffset = 1;
+
+        int totalFrameSize = baseOffset + paramsOffset + localOffset + returnOffset;
+
+        string funcName = context.ID().GetText();
+        StackObject.StackObjectType funcType;
+        if (context.tipo() != null)
+        {
+            funcType = GetType(context.tipo().GetText());
+        }
+        else
+        {
+            funcType = StackObject.StackObjectType.Void;
+        }
+        Console.WriteLine("funtype: " + funcType);
+
+        Console.WriteLine("Total frame: " + totalFrameSize);
+
+        functions.Add(funcName, new FunctionMetadata
+        {
+            FrameSize = totalFrameSize,
+            ReturnType = funcType
+        });
+
+        var prevInstrucions = c.instructions;
+        c.instructions = new List<string>();
+
+        // Parametros
+        var paramCounter = 0;
+        var childrenN = context.@params().children;
+        for (int i = 0; i < childrenN.Count - 1; i++)
+        {
+            if (childrenN[i] is ITerminalNode idNode && idNode.Symbol.Type == LanguageParser.ID)
+            {
+                var id = idNode.GetText();
+                var tipo = childrenN[i + 1].GetText();
+                c.PushObject(new StackObject
+                {
+                    Type = GetType(tipo),
+                    Id = id,
+                    Offset = baseOffset + paramCounter,
+                    Length = 8
+                });
+                paramCounter++;
+            }
+        }
+
+        foreach (FrameElement element in frame)
+        {
+            c.PushObject(new StackObject
+            {
+                Type = StackObject.StackObjectType.Undefined,
+                Id = element.Name,
+                Offset = element.Offset,
+                Length = 8
+            });
+        }
+
+        insideFunction = funcName;
+        framePointerOffset = 0;
+
+        returnLabel = c.GetLabel();
+
+        c.Comment("Function declaration: " + funcName);
+        c.SetLabel(funcName);
+
+        foreach (var dcl in context.dcl())
+        {
+            Visit(dcl);
+        }
+
+        c.SetLabel(returnLabel);
+
+        c.Add(Register.X0, Register.FP, Register.XZR);
+        c.Ldr(Register.LR, Register.X0);
+        c.Br(Register.LR);
+
+        c.Comment("End of function: " + funcName);
+
+        for (int i = 0; i < paramsOffset + localOffset; i++)
+        {
+            c.PopObject();
+        }
+
+        foreach (var instruction in c.instructions)
+        {
+            c.funcInstructions.Add(instruction);
+        }
+
+        insideFunction = null;
+
         return null;
     }
 
+    private StackObject.StackObjectType GetType(string v)
+    {
+        return v switch
+        {
+            "int" => StackObject.StackObjectType.Int,
+            "float64" => StackObject.StackObjectType.Float,
+            "string" => StackObject.StackObjectType.String,
+            "bool" => StackObject.StackObjectType.Bool,
+            "rune" => StackObject.StackObjectType.Char,
+        };
+    }
 
     public override Object? VisitStructAccess(LanguageParser.StructAccessContext context)
     {

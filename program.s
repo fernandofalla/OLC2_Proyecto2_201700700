@@ -4,73 +4,45 @@ heap: .space 4096
 .global _start
 _start:
     ADR x10, heap
-// Variable: i
-// Constant: 10
-MOV x0, #10
-STR x0, [SP, #-8]!
-// For statement
-L0:
-// Visiting expression
-// Constant: True
-MOV x0, #1
-STR x0, [SP, #-8]!
-LDR x0, [SP], #8
-CBZ x0, L1
-// Visiting block
-// Visiting block
+// Function declaration: akerman
+akerman:
 // If statement
-// Relational
+// Equality
 // Visiting left
-// Variable: i
-// Offset: 0
-MOV x0, #0
-ADD x0, sp, x0
+// Variable: m
+// Offset: 8
+MOV x0, #16
+SUB x0, x29, x0
 LDR x0, [x0, #0]
 STR x0, [SP, #-8]!
 // Visiting right
-// Constant: 1
-MOV x0, #1
+// Constant: 0
+MOV x0, #0
 STR x0, [SP, #-8]!
 // Popping operands
+// Popping object from stack
 LDR x0, [SP], #8
+// Popping object from stack
 LDR x1, [SP], #8
 CMP x1, x0
-BLT L2
-MOV x0, #0
+// Pushing result
+CSET x0, EQ
+// Pushing result
 STR x0, [SP, #-8]!
-B L3
-L2:
-MOV x0, #1
-STR x0, [SP, #-8]!
-L3:
+// Pushing result
+// Popping object from stack
 LDR x0, [SP], #8
-CBZ x0, L4
+CBZ x0, L1
 // Visiting if block
 // Visiting block
-// Break statement
-B L1
-L4:
-// Print statement
-// Visiting expression
-// Variable: i
-// Offset: 0
-MOV x0, #0
-ADD x0, sp, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// Popping expression
-LDR x0, [SP], #8
-MOV X0, x0
-BL print_integer
-// Assign
-// Variable: i
+// Return statement
 // Visiting expression
 // AddSub
 // Visiting left
-// Variable: i
+// Variable: n
 // Offset: 0
-MOV x0, #0
-ADD x0, sp, x0
+MOV x0, #24
+SUB x0, x29, x0
 LDR x0, [x0, #0]
 STR x0, [SP, #-8]!
 // Visiting right
@@ -78,24 +50,561 @@ STR x0, [SP, #-8]!
 MOV x0, #1
 STR x0, [SP, #-8]!
 // Popping operands
+// Popping object from stack
 LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+ADD x0, x0, x1
+// Pushing result
+STR x0, [SP, #-8]!
+// Popping object from stack
+LDR x0, [SP], #8
+MOV x1, #32
+SUB x1, x29, x1
+STR x0, [x1, #0]
+B L0
+// End of return statement
+B L2
+L1:
+// Visiting else block
+// If statement
+// Equality
+// Visiting left
+// Variable: n
+// Offset: 0
+MOV x0, #24
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 0
+MOV x0, #0
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+CMP x1, x0
+// Pushing result
+CSET x0, EQ
+// Pushing result
+STR x0, [SP, #-8]!
+// Pushing result
+// Popping object from stack
+LDR x0, [SP], #8
+CBZ x0, L3
+// Visiting if block
+// Visiting block
+// Return statement
+// Visiting expression
+MOV x0, #16
+SUB sp, sp, x0
+// Visiting args
+// AddSub
+// Visiting left
+// Variable: m
+// Offset: 8
+MOV x0, #16
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 1
+MOV x0, #1
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
 LDR x1, [SP], #8
 SUB x0, x1, x0
 // Pushing result
 STR x0, [SP, #-8]!
-LDR x0, [SP], #8
-MOV x1, #0
-ADD x1, sp, x1
-STR x0, [x1, #0]
+// Constant: 1
+MOV x0, #1
 STR x0, [SP, #-8]!
-// Popping expression
+MOV x0, #32
+ADD sp, sp, x0
+MOV x0, #8
+SUB x0, sp, x0
+ADR x1, L5
+STR x1, [SP, #-8]!
+STR x29, [SP, #-8]!
+ADD x29, x0, xzr
+MOV x0, #24
+SUB sp, sp, x0
+// Calling function: akerman
+BL akerman
+// Function call: akerman
+L5:
+MOV x4, #32
+SUB x4, x29, x4
+LDR x4, [x4, #0]
+MOV x1, #8
+SUB x1, x29, x1
+LDR x29, [x1, #0]
+MOV x0, #40
+ADD sp, sp, x0
+STR x4, [SP, #-8]!
+// End of function call: akerman
+// Popping object from stack
 LDR x0, [SP], #8
+MOV x1, #32
+SUB x1, x29, x1
+STR x0, [x1, #0]
 B L0
-L1:
-// End of for statement
+// End of return statement
+// Removing 8 bytes from stack
+MOV x0, #8
+ADD sp, sp, x0
+// New stack pointer: 
+B L4
+L3:
+// Visiting else block
+// Visiting block
+// Return statement
+// Visiting expression
+MOV x0, #16
+SUB sp, sp, x0
+// Visiting args
+// AddSub
+// Visiting left
+// Variable: m
+// Offset: 0
+MOV x0, #0
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 1
+MOV x0, #1
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+SUB x0, x1, x0
+// Pushing result
+STR x0, [SP, #-8]!
+MOV x0, #16
+SUB sp, sp, x0
+// Visiting args
+// Variable: m
+// Offset: 0
+MOV x0, #0
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// AddSub
+// Visiting left
+// Variable: n
+// Offset: 24
+MOV x0, #24
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 1
+MOV x0, #1
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+SUB x0, x1, x0
+// Pushing result
+STR x0, [SP, #-8]!
+MOV x0, #32
+ADD sp, sp, x0
+MOV x0, #8
+SUB x0, sp, x0
+ADR x1, L7
+STR x1, [SP, #-8]!
+STR x29, [SP, #-8]!
+ADD x29, x0, xzr
+MOV x0, #24
+SUB sp, sp, x0
+// Calling function: akerman
+BL akerman
+// Function call: akerman
+L7:
+MOV x4, #32
+SUB x4, x29, x4
+LDR x4, [x4, #0]
+MOV x1, #8
+SUB x1, x29, x1
+LDR x29, [x1, #0]
+MOV x0, #40
+ADD sp, sp, x0
+STR x4, [SP, #-8]!
+// End of function call: akerman
+MOV x0, #32
+ADD sp, sp, x0
+MOV x0, #8
+SUB x0, sp, x0
+ADR x1, L6
+STR x1, [SP, #-8]!
+STR x29, [SP, #-8]!
+ADD x29, x0, xzr
+MOV x0, #24
+SUB sp, sp, x0
+// Calling function: akerman
+BL akerman
+// Function call: akerman
+L6:
+MOV x4, #32
+SUB x4, x29, x4
+LDR x4, [x4, #0]
+MOV x1, #8
+SUB x1, x29, x1
+LDR x29, [x1, #0]
+MOV x0, #40
+ADD sp, sp, x0
+STR x4, [SP, #-8]!
+// End of function call: akerman
+// Popping object from stack
+LDR x0, [SP], #8
+MOV x1, #32
+SUB x1, x29, x1
+STR x0, [x1, #0]
+B L0
+// End of return statement
+L4:
+L2:
+L0:
+ADD x0, x29, xzr
+LDR x30, [x0, #0]
+BR x30
+// End of function: akerman
+// Popping object from stack
+// Popping object from stack
+// Print statement
+// Visiting expression
+MOV x0, #16
+SUB sp, sp, x0
+// Visiting args
+// Constant: 3
+MOV x0, #3
+STR x0, [SP, #-8]!
+// Constant: 4
+MOV x0, #4
+STR x0, [SP, #-8]!
+MOV x0, #32
+ADD sp, sp, x0
+MOV x0, #8
+SUB x0, sp, x0
+ADR x1, L8
+STR x1, [SP, #-8]!
+STR x29, [SP, #-8]!
+ADD x29, x0, xzr
+MOV x0, #24
+SUB sp, sp, x0
+// Calling function: akerman
+BL akerman
+// Function call: akerman
+L8:
+MOV x4, #32
+SUB x4, x29, x4
+LDR x4, [x4, #0]
+MOV x1, #8
+SUB x1, x29, x1
+LDR x29, [x1, #0]
+MOV x0, #40
+ADD sp, sp, x0
+STR x4, [SP, #-8]!
+// End of function call: akerman
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_integer
 MOV x0, #0
 MOV x8, #93
 SVC #0
+
+
+
+ // Functions
+// Function declaration: akerman
+akerman:
+// If statement
+// Equality
+// Visiting left
+// Variable: m
+// Offset: 8
+MOV x0, #16
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 0
+MOV x0, #0
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+CMP x1, x0
+// Pushing result
+CSET x0, EQ
+// Pushing result
+STR x0, [SP, #-8]!
+// Pushing result
+// Popping object from stack
+LDR x0, [SP], #8
+CBZ x0, L1
+// Visiting if block
+// Visiting block
+// Return statement
+// Visiting expression
+// AddSub
+// Visiting left
+// Variable: n
+// Offset: 0
+MOV x0, #24
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 1
+MOV x0, #1
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+ADD x0, x0, x1
+// Pushing result
+STR x0, [SP, #-8]!
+// Popping object from stack
+LDR x0, [SP], #8
+MOV x1, #32
+SUB x1, x29, x1
+STR x0, [x1, #0]
+B L0
+// End of return statement
+B L2
+L1:
+// Visiting else block
+// If statement
+// Equality
+// Visiting left
+// Variable: n
+// Offset: 0
+MOV x0, #24
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 0
+MOV x0, #0
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+CMP x1, x0
+// Pushing result
+CSET x0, EQ
+// Pushing result
+STR x0, [SP, #-8]!
+// Pushing result
+// Popping object from stack
+LDR x0, [SP], #8
+CBZ x0, L3
+// Visiting if block
+// Visiting block
+// Return statement
+// Visiting expression
+MOV x0, #16
+SUB sp, sp, x0
+// Visiting args
+// AddSub
+// Visiting left
+// Variable: m
+// Offset: 8
+MOV x0, #16
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 1
+MOV x0, #1
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+SUB x0, x1, x0
+// Pushing result
+STR x0, [SP, #-8]!
+// Constant: 1
+MOV x0, #1
+STR x0, [SP, #-8]!
+MOV x0, #32
+ADD sp, sp, x0
+MOV x0, #8
+SUB x0, sp, x0
+ADR x1, L5
+STR x1, [SP, #-8]!
+STR x29, [SP, #-8]!
+ADD x29, x0, xzr
+MOV x0, #24
+SUB sp, sp, x0
+// Calling function: akerman
+BL akerman
+// Function call: akerman
+L5:
+MOV x4, #32
+SUB x4, x29, x4
+LDR x4, [x4, #0]
+MOV x1, #8
+SUB x1, x29, x1
+LDR x29, [x1, #0]
+MOV x0, #40
+ADD sp, sp, x0
+STR x4, [SP, #-8]!
+// End of function call: akerman
+// Popping object from stack
+LDR x0, [SP], #8
+MOV x1, #32
+SUB x1, x29, x1
+STR x0, [x1, #0]
+B L0
+// End of return statement
+// Removing 8 bytes from stack
+MOV x0, #8
+ADD sp, sp, x0
+// New stack pointer: 
+B L4
+L3:
+// Visiting else block
+// Visiting block
+// Return statement
+// Visiting expression
+MOV x0, #16
+SUB sp, sp, x0
+// Visiting args
+// AddSub
+// Visiting left
+// Variable: m
+// Offset: 0
+MOV x0, #0
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 1
+MOV x0, #1
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+SUB x0, x1, x0
+// Pushing result
+STR x0, [SP, #-8]!
+MOV x0, #16
+SUB sp, sp, x0
+// Visiting args
+// Variable: m
+// Offset: 0
+MOV x0, #0
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// AddSub
+// Visiting left
+// Variable: n
+// Offset: 24
+MOV x0, #24
+SUB x0, x29, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Visiting right
+// Constant: 1
+MOV x0, #1
+STR x0, [SP, #-8]!
+// Popping operands
+// Popping object from stack
+LDR x0, [SP], #8
+// Popping object from stack
+LDR x1, [SP], #8
+SUB x0, x1, x0
+// Pushing result
+STR x0, [SP, #-8]!
+MOV x0, #32
+ADD sp, sp, x0
+MOV x0, #8
+SUB x0, sp, x0
+ADR x1, L7
+STR x1, [SP, #-8]!
+STR x29, [SP, #-8]!
+ADD x29, x0, xzr
+MOV x0, #24
+SUB sp, sp, x0
+// Calling function: akerman
+BL akerman
+// Function call: akerman
+L7:
+MOV x4, #32
+SUB x4, x29, x4
+LDR x4, [x4, #0]
+MOV x1, #8
+SUB x1, x29, x1
+LDR x29, [x1, #0]
+MOV x0, #40
+ADD sp, sp, x0
+STR x4, [SP, #-8]!
+// End of function call: akerman
+MOV x0, #32
+ADD sp, sp, x0
+MOV x0, #8
+SUB x0, sp, x0
+ADR x1, L6
+STR x1, [SP, #-8]!
+STR x29, [SP, #-8]!
+ADD x29, x0, xzr
+MOV x0, #24
+SUB sp, sp, x0
+// Calling function: akerman
+BL akerman
+// Function call: akerman
+L6:
+MOV x4, #32
+SUB x4, x29, x4
+LDR x4, [x4, #0]
+MOV x1, #8
+SUB x1, x29, x1
+LDR x29, [x1, #0]
+MOV x0, #40
+ADD sp, sp, x0
+STR x4, [SP, #-8]!
+// End of function call: akerman
+// Popping object from stack
+LDR x0, [SP], #8
+MOV x1, #32
+SUB x1, x29, x1
+STR x0, [x1, #0]
+B L0
+// End of return statement
+L4:
+L2:
+L0:
+ADD x0, x29, xzr
+LDR x30, [x0, #0]
+BR x30
+// End of function: akerman
+// Popping object from stack
+// Popping object from stack
 
 
 

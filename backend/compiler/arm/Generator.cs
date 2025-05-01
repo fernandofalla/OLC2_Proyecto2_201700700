@@ -2,8 +2,9 @@ using System.Text;
 
 public class StackObject
 {
-    public enum StackObjectType { Int, Float, String, Bool, Char, Void }
+    public enum StackObjectType { Int, Float, String, Bool, Char, Void, Undefined }
     public StackObjectType Type { get; set; }
+    public int Offset { get; set; }
     public int Length { get; set; }
     public int Depth { get; set; }
     public string? Id { get; set; }
@@ -11,7 +12,8 @@ public class StackObject
 
 public class ArmGenerator
 {
-    private readonly List<string> instructions = new List<string>();
+    public List<string> instructions = new List<string>();
+    public List<string> funcInstructions = new List<string>();
     private readonly StandarLibrary stdLib = new StandarLibrary();
     private List<StackObject> stack = new List<StackObject>();
 
@@ -39,6 +41,18 @@ public class ArmGenerator
     public void PushObject(StackObject obj)
     {
         stack.Add(obj);
+    }
+    public void PopObject()
+    {
+        Comment("Popping object from stack");
+        try{
+            stack.RemoveAt(stack.Count - 1);
+        }
+        catch (System.Exception)
+        {
+            Console.WriteLine(this.ToString());
+            throw new Exception("Stack is empty");
+        }
     }
 
     public void PushConstant(StackObject obj, Object value)
@@ -100,7 +114,8 @@ public class ArmGenerator
     public StackObject PopObject(string rd)
     {
         var obj = stack.Last();
-        stack.RemoveAt(stack.Count - 1);
+        PopObject();
+        // stack.RemoveAt(stack.Count - 1);
         Pop(rd);
         return obj;
     }
@@ -327,6 +342,18 @@ public class ArmGenerator
     {
         instructions.Add($"B {label}");
     }
+    public void Br(string label)
+    {
+        instructions.Add($"BR {label}");
+    }
+    public void Adr(string rd, string label)
+    {
+        instructions.Add($"ADR {rd}, {label}");
+    }
+    public void Bl(string label)
+    {
+        instructions.Add($"BL {label}");
+    }
     public void Beq(string label)
     {
         instructions.Add($"BEQ {label}");
@@ -407,9 +434,18 @@ public class ArmGenerator
             sb.AppendLine(instruction);
         }
 
+        sb.AppendLine("\n\n\n // Functions");
+        funcInstructions.ForEach(i => sb.AppendLine(i));
+
         sb.AppendLine("\n\n\n // Standard Library");
         sb.AppendLine(stdLib.GetFunctionDefinitions());
 
         return sb.ToString();
+    }
+
+    public StackObject GetFrameLocal(int index)
+    {
+        var obj = stack.Where(o => o.Type == StackObject.StackObjectType.Undefined).ToList()[index];
+        return obj;
     }
 }

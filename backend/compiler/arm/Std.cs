@@ -161,13 +161,6 @@ print_result:
     ldp x19, x20, [sp], #16
     ldp x29, x30, [sp], #16    // Restore frame pointer and link register
 
-    // Print newline
-    mov x0, #1
-    adr x1, newline_char
-    mov x2, #1
-    mov w8, #64
-    svc #0
-
     ret                        // Return to caller
     "
     },
@@ -212,12 +205,6 @@ print_done:
     // Restore saved registers
     ldp     x19, x20, [sp], #16
     ldp     x29, x30, [sp], #16
-    // Print newline
-    mov x0, #1
-    adr x1, newline_char
-    mov x2, #1
-    mov x8, #64
-    svc #0
 
     ret
     // Return to the caller
@@ -324,12 +311,6 @@ exit_function:
     ldp x21, x22, [sp], #16
     ldp x19, x20, [sp], #16
     ldp x29, x30, [sp], #16
-    // Print newline
-    mov x0, #1
-    adr x1, newline_char
-    mov x2, #1
-    mov x8, #64
-    svc #0
 
     ret
     "},{
@@ -363,12 +344,6 @@ print_end:
     mov x8, #64
     svc #0
     ldp x29, x30, [sp], #16
-    // Print newline
-    mov x0, #1
-    adr x1, newline_char
-    mov x2, #1
-    mov x8, #64
-    svc #0
 
     ret"
 }

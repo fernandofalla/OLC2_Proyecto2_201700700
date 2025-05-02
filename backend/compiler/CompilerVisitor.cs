@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using analyzer;
 using Antlr4.Runtime.Misc;
@@ -73,6 +74,9 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         {
             c.Comment("Unknown type");
         }
+
+        c.PrintLn();
+
 
         return null;
     }
@@ -341,6 +345,54 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
     public override Object? VisitMulDivMod(LanguageParser.MulDivModContext context)
     {
+        c.Comment("AddSub");
+        var operation = context.op.Text;
+
+        // 1 + 2
+        c.Comment("Visiting left");
+        Visit(context.expr(0));
+        c.Comment("Visiting right");
+        Visit(context.expr(1));
+
+
+        c.Comment("Popping operands");
+        var isRightDouble = c.TopObject().Type == StackObject.StackObjectType.Float;
+        var right = c.PopObject(isRightDouble ? Register.D0 : Register.X0); // x1 = 2
+        var isLeftDouble = c.TopObject().Type == StackObject.StackObjectType.Float;
+        var left = c.PopObject(isLeftDouble ? Register.D1 : Register.X1); // x0 = 1 
+
+        if (isLeftDouble || isRightDouble)
+        {
+            if (!isLeftDouble) c.Scvtf(Register.D1, Register.X1); // Convert left to float
+            if (!isRightDouble) c.Scvtf(Register.D0, Register.X0); // Convert right to float
+
+            if (operation == "*")
+            {
+                c.Fmul(Register.D0, Register.D0, Register.D1);
+            }
+            else if (operation == "/")
+            {
+                c.Fdiv(Register.D0, Register.D1, Register.D0);
+            }
+            c.Comment("Pushing result");
+            c.Push(Register.D0); // x0 = 1 + 2
+            c.PushObject(c.CloneObject(isLeftDouble ? left : right));
+
+            return null;
+        }
+
+        if (operation == "*")
+        {
+            c.Fmul(Register.X0, Register.X0, Register.X1);
+        }
+        else if (operation == "/")
+        {
+            c.Fdiv(Register.X0, Register.X1, Register.X0);
+        }
+
+        c.Comment("Pushing result");
+        c.Push(Register.X0); // x0 = 1 + 2
+        c.PushObject(c.CloneObject(left));
         return null;
     }
 
@@ -418,31 +470,41 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
         if (isLeftDouble || isRightDouble)
         {
-            // if (!isLeftDouble) c.Scvtf(Register.D1, Register.X1); // Convert left to float
-            // if (!isRightDouble) c.Scvtf(Register.D0, Register.X0); // Convert right to float
+            if (!isLeftDouble) c.Scvtf(Register.D1, Register.X1); // Convert left to float
+            if (!isRightDouble) c.Scvtf(Register.D0, Register.X0); // Convert right to float
+            
 
-            // c.Fcmp(Register.D1, Register.D0);
+            c.Fcmp(Register.D1, Register.D0);
 
-            // c.Comment("Pushing result");
-            // switch (operation)
-            // {
-            //     case "<":
-            //         c.Cset(Register.X0, "LT");
-            //         break;
-            //     case "<=":
-            //         c.Cset(Register.X0, "LE");
-            //         break;
-            //     case ">":
-            //         c.Cset(Register.X0, "GT");
-            //         break;
-            //     case ">=":
-            //         c.Cset(Register.X0, "GE");
-            //         break;
-            // }
-            // c.Comment("Pushing result");
-            // c.Push(Register.D0); // x0 = 1 + 2
-            // c.PushObject(c.CloneObject(isLeftDouble ? left : right));
-            // TODO:
+            c.Comment("Pushing result");
+            var truelabeld = c.GetLabel();
+            var endlabeld = c.GetLabel();
+
+            switch (operation)
+            {
+                case "<":
+                    c.Blt(truelabeld);
+                    break;
+                case "<=":
+                    c.Ble(truelabeld);
+                    break;
+                case ">":
+                    c.Bgt(truelabeld);
+                    break;
+                case ">=":
+                    c.Bge(truelabeld);
+                    break;
+            }
+
+            c.Mov(Register.X0, 0);
+            c.Push(Register.X0); // x0 = 1 + 2
+            c.B(endlabeld);
+            c.SetLabel(truelabeld);
+            c.Mov(Register.X0, 1);
+            c.Push(Register.X0); // x0 = 1 + 2
+            c.SetLabel(endlabeld);
+
+            c.PushObject(c.BoolObject());
             return null;
         }
 
@@ -504,42 +566,107 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
             c.Fcmp(Register.D1, Register.D0);
 
             c.Comment("Pushing result");
+            var truelabeld = c.GetLabel();
+            var endlabeld = c.GetLabel();
+
             switch (operation)
             {
                 case "==":
-                    c.Cset(Register.X0, "EQ");
+                    c.Beq(truelabeld);
                     break;
                 case "!=":
-                    c.Cset(Register.X0, "NE");
+                    c.Bne(truelabeld);
                     break;
             }
-            c.Comment("Pushing result");
+             
+            c.Mov(Register.X0, 0);
             c.Push(Register.X0); // x0 = 1 + 2
-            c.PushObject(c.CloneObject(isLeftDouble ? left : right));
+            c.B(endlabeld);
+            c.SetLabel(truelabeld);
+            c.Mov(Register.X0, 1);
+            c.Push(Register.X0); // x0 = 1 + 2
+            c.SetLabel(endlabeld);
+
+            c.PushObject(c.BoolObject());
 
             return null;
         }
         c.Cmp(Register.X1, Register.X0);
         c.Comment("Pushing result");
+        var truelabel = c.GetLabel();
+        var endlabel = c.GetLabel();
+
         switch (operation)
         {
             case "==":
-                c.Cset(Register.X0, "EQ");
+                c.Beq(truelabel);
                 break;
             case "!=":
-                c.Cset(Register.X0, "NE");
+                c.Bne(truelabel);
                 break;
         }
-        c.Comment("Pushing result");
+        
+        c.Mov(Register.X0, 0);
         c.Push(Register.X0); // x0 = 1 + 2
-        c.PushObject(c.CloneObject(left));
-        c.Comment("Pushing result");
+        c.B(endlabel);
+        c.SetLabel(truelabel);
+        c.Mov(Register.X0, 1);
+        c.Push(Register.X0); // x0 = 1 + 2
+        c.SetLabel(endlabel);
+
+        c.PushObject(c.BoolObject());
 
         return null;
     }
 
     public override Object? VisitLogical(LanguageParser.LogicalContext context)
     {
+        c.Comment("Logical");
+        var operation = context.op.Text;
+
+        c.Comment("Visiting left");
+        Visit(context.expr(0));
+
+        c.Comment("Visiting right");
+        Visit(context.expr(1));
+
+        c.Comment("Popping operands");        
+        var right = c.PopObject(Register.X0); // x1 = 2        
+        var left = c.PopObject(Register.X1); // x0 = 1
+
+        var truelabel = c.GetLabel();
+        var endlabel = c.GetLabel();
+
+        switch(operation)
+        {
+            case "&&":
+                c.Cmp(Register.X0, "0");
+                c.Beq(endlabel); // If x0 == 0, go to end
+                c.Cmp(Register.X1, "1");
+                c.Beq(endlabel); // If x1 == 0, go to end
+                c.Mov(Register.X0, 1);
+                c.B(truelabel);
+                break;
+            case "||":
+                c.Cmp(Register.X0, "1");
+                c.Beq(truelabel); // If x0 == 1, go to end
+                c.Cmp(Register.X1, "1"); 
+                c.Beq(truelabel); // If x1 == 1, go to end
+                c.Mov(Register.X0, 0);
+                c.B(endlabel);
+                break;
+        }
+
+        c.SetLabel(truelabel);
+        if(operation == "||")
+        {
+            c.Mov(Register.X0, 1);
+        }
+        
+        c.SetLabel(endlabel);
+        c.Push(Register.X0); // x0 = 1 + 2
+        c.PushObject(c.BoolObject());
+
         return null;
     }
 

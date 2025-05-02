@@ -1,60 +1,74 @@
-	puntos := 0
+puntos := 0
 
-	fmt.Println("=== Archivo de prueba básico ===")
-	fmt.Println("Validaciones manuales esperadas: 4")
+fmt.Println("=== Archivo de prueba básico ===")
+fmt.Println("Validaciones manuales esperadas: 4")
 
-    // 1. Declaración de variables (3 puntos)
-	fmt.Println("==== Declaración de variables ====")
-	puntosDeclaracion := 0
+// 1. Declaración de variables (3 puntos)
+fmt.Println("==== Declaración de variables ====")
+puntosDeclaracion := 0
 
-    fmt.Println("Declaración explícita con tipo y valor")
-	var entero int = 42
-	var texto string = "Hola!"
-	var booleano bool = true	
-	
-    fmt.Println("\n\n###Validacion Manual")
-	fmt.Println("entero: ")
-    fmt.Println(entero)
-	fmt.Println("texto: ")
-    fmt.Println(texto)
-	fmt.Println("booleano: ")
-    fmt.Println(booleano)
+fmt.Println("Declaración explícita con tipo y valor")
+var entero int = 42
+var texto string = "Hola!"
+var booleano bool = true	
 
-	fmt.Println("")
+fmt.Println("\n\n###Validacion Manual")
+fmt.Println("entero: ")
+fmt.Println(entero)
+fmt.Println("texto: ")
+fmt.Println(texto)
+fmt.Println("booleano: ")
+fmt.Println(booleano)
 
-    if entero == 42 && texto == "Hola!" && booleano == true {
-		puntosDeclaracion = puntosDeclaracion + 1
-		fmt.Println("OK Declaración explícita: correcto")
-	} else {
-		fmt.Println("X Declaración explícita: incorrecto")
-	}
+fmt.Println("")
 
-    fmt.Println("Declaración sin valor")
-	var enteroSinValor int	
-    var decimalSinValor float64
-	var textoSinValor string
-	var booleanoSinValor bool
+if entero == 42 && texto == "Hola!" && booleano == true {
+	puntosDeclaracion = puntosDeclaracion + 1
+	fmt.Println("OK Declaración explícita: correcto")
+} else {
+	fmt.Println("X Declaración explícita: incorrecto")
+}
 
-    fmt.Println("enteroSinValor:")
-    fmt.Println(enteroSinValor)
-	fmt.Println("decimalSinValor:")
-    fmt.Println(decimalSinValor)
-	fmt.Println("textoSinValor:")
-    fmt.Println(textoSinValor)
-	fmt.Println("booleanoSinValor:")
-    fmt.Println(booleanoSinValor)
+fmt.Println("Declaración sin valor")
+var enteroSinValor int	
+var decimalSinValor float64
+var textoSinValor string
+var booleanoSinValor bool
 
-    if enteroSinValor == 0 {
-		puntosDeclaracion = puntosDeclaracion + 1
-		fmt.Println("OK Declaración sin valor: correcto")
-	} else {
-		fmt.Println("X Declaración sin valor: incorrecto")
-	}
+fmt.Println("enteroSinValor:")
+fmt.Println(enteroSinValor)
+fmt.Println("decimalSinValor:")
+fmt.Println(decimalSinValor)
+fmt.Println("textoSinValor:")
+fmt.Println(textoSinValor)
+fmt.Println("booleanoSinValor:")
+fmt.Println(booleanoSinValor)
 
-    fmt.Println("Declaración con inferencia de tipo")
-	enteroInferido := 100
-	decimalInferido := 2.71
-	textoInferido := "Adios!"
-	booleanoInferido := false
+if enteroSinValor == 0 &&  decimalSinValor == 0.0{
+	puntosDeclaracion = puntosDeclaracion + 1
+	fmt.Println("OK Declaración sin valor: correcto")
+} else {
+	fmt.Println("X Declaración sin valor: incorrecto")
+}
 
-    
+fmt.Println("Declaración con inferencia de tipo")
+enteroInferido := 100
+decimalInferido := 2.71
+textoInferido := "Adios!"
+booleanoInferido := false
+
+fmt.Println("enteroInferido:")
+fmt.Println(enteroInferido)
+fmt.Println("decimalInferido:")
+fmt.Println(decimalInferido)
+fmt.Println("textoInferido:")
+fmt.Println(textoInferido)
+fmt.Println("booleanoInferido:")
+fmt.Println(booleanoInferido)
+
+if enteroInferido == 100 && decimalInferido > 2.7 && textoInferido == "Adios!" && booleanoInferido == false {
+	puntosDeclaracion = puntosDeclaracion + 1
+	fmt.Println("OK Declaración con inferencia: correcto")
+} else {
+	fmt.Println("X Declaración con inferencia: incorrecto")
+}

@@ -378,6 +378,10 @@ public class ArmGenerator
     {
         instructions.Add($"BLE {label}");
     }
+    public void Be(string label)
+    {
+        instructions.Add($"BE {label}");
+    }
     public void EndProgram()
     {
         Mov(Register.X0, 0);
@@ -395,6 +399,14 @@ public class ArmGenerator
         stdLib.Use("print_string");
         instructions.Add($"MOV X0, {rs}");
         instructions.Add($"BL print_string");
+    }
+    public void PrintLn()
+    {                
+        instructions.Add($"MOV X0, #1");
+        instructions.Add($"ADR X1, newline_char");
+        instructions.Add($"MOV X2, #1");
+        instructions.Add($"MOV X8, #64");
+        instructions.Add($"SVC #0");       
     }
     public void PrintFloat()
     {

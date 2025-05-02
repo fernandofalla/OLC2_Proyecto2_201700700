@@ -31,7 +31,7 @@ functionStructDcl: 'func' '(' ID ID ')' ID '(' params? ')' tipo? '{' dcl* '}'			
 ;
 
 stmt: expr ';'?                 														# ExprStmt 
-    | 'fmt.Println(' expr ')'   													# PrintStmt		
+    | 'fmt.Println(' call ')'   													# PrintStmt		
 	| '{' dcl* '}'																	# BlockStmt
 	| 'if' expr stmt ('else' stmt)?											# IfStmt
 	| 'switch' expr '{' caseBlock+ defaultBlock? '}'								# SwitchStmt

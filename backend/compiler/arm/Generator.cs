@@ -64,11 +64,11 @@ public class ArmGenerator
                 Push(Register.X0);
                 break;
             case StackObject.StackObjectType.Float:
-                long floatBits = BitConverter.DoubleToInt64Bits((double)value);
-                short[] floatParts = new short[4];
+                ulong floatBits = (ulong)BitConverter.DoubleToInt64Bits((double)value);
+                ushort[] floatParts = new ushort[4];
                 for (int i = 0; i < 4; i++)
                 {
-                    floatParts[i] = (short)((floatBits >> (i * 16)) & 0xFFFF);
+                    floatParts[i] = (ushort)((floatBits >> (i * 16)) & 0xFFFF);
                 }
 
                 instructions.Add($"MOVZ X0, #{floatParts[0]}, LSL #0");

@@ -926,8 +926,8 @@ public class LanguageParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class PrintStmtContext extends StmtContext {
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
+		public CallContext call() {
+			return getRuleContext(CallContext.class,0);
 		}
 		public PrintStmtContext(StmtContext ctx) { copyFrom(ctx); }
 	}
@@ -1043,7 +1043,7 @@ public class LanguageParser extends Parser {
 				setState(174);
 				match(T__13);
 				setState(175);
-				expr(0);
+				call();
 				setState(176);
 				match(T__12);
 				}
@@ -2812,7 +2812,7 @@ public class LanguageParser extends Parser {
 		"\u0000\u0000\u00aa\u00ac\u0003\"\u0011\u0000\u00ab\u00ad\u0005\u0001\u0000"+
 		"\u0000\u00ac\u00ab\u0001\u0000\u0000\u0000\u00ac\u00ad\u0001\u0000\u0000"+
 		"\u0000\u00ad\u00f2\u0001\u0000\u0000\u0000\u00ae\u00af\u0005\u000e\u0000"+
-		"\u0000\u00af\u00b0\u0003\"\u0011\u0000\u00b0\u00b1\u0005\r\u0000\u0000"+
+		"\u0000\u00af\u00b0\u0003&\u0013\u0000\u00b0\u00b1\u0005\r\u0000\u0000"+
 		"\u00b1\u00f2\u0001\u0000\u0000\u0000\u00b2\u00b6\u0005\u0007\u0000\u0000"+
 		"\u00b3\u00b5\u0003\u0002\u0001\u0000\u00b4\u00b3\u0001\u0000\u0000\u0000"+
 		"\u00b5\u00b8\u0001\u0000\u0000\u0000\u00b6\u00b4\u0001\u0000\u0000\u0000"+

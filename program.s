@@ -4,45 +4,1170 @@ heap: .space 4096
 .global _start
 _start:
     ADR x10, heap
-// Function declaration: akerman
-akerman:
-// If statement
-// Equality
-// Visiting left
-// Variable: m
-// Offset: 8
-MOV x0, #16
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// Visiting right
+// Variable: puntos
 // Constant: 0
 MOV x0, #0
 STR x0, [SP, #-8]!
-// Popping operands
+// Print statement
+// Visiting expression
+// Constant: === Archivo de prueba básico ===
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #65
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #104
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #118
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #100
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #112
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #117
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #98
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #98
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #225
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
 // Popping object from stack
 LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Constant: Validaciones manuales esperadas: 4
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #86
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #100
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #109
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #117
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #112
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #100
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #52
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
 // Popping object from stack
-LDR x1, [SP], #8
-CMP x1, x0
-// Pushing result
-CSET x0, EQ
-// Pushing result
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Constant: ==== Declaración de variables ====
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #68
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #243
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #100
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #118
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #98
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #61
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Variable: puntosDeclaracion
+// Constant: 0
+MOV x0, #0
 STR x0, [SP, #-8]!
-// Pushing result
+// Print statement
+// Visiting expression
+// Constant: Declaración explícita con tipo y valor
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #68
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #243
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #120
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #112
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #237
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #112
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #121
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #118
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
 // Popping object from stack
 LDR x0, [SP], #8
-CBZ x0, L1
+MOV X0, x0
+BL print_string
+// Variable: entero
+// Constant: 42
+MOV x0, #42
+STR x0, [SP, #-8]!
+// Variable: texto
+// Constant: Hola!
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #72
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #33
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Variable: booleano
+// Constant: True
+MOV x0, #1
+STR x0, [SP, #-8]!
+// Print statement
+// Visiting expression
+// Constant: \n\n###Validacion Manual
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #92
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #92
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #35
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #35
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #35
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #86
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #100
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #77
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #117
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Constant: entero: 
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Variable: entero
+// Offset: 16
+MOV x0, #16
+ADD x0, sp, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_integer
+// Print statement
+// Visiting expression
+// Constant: texto: 
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #120
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Variable: texto
+// Offset: 8
+MOV x0, #8
+ADD x0, sp, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Constant: booleano: 
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #98
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Variable: booleano
+// Offset: 0
+MOV x0, #0
+ADD x0, sp, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_boolean
+// Print statement
+// Visiting expression
+// Constant: 
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// If statement
+// Popping object from stack
+LDR x0, [SP], #8
+CBZ x0, L0
 // Visiting if block
 // Visiting block
-// Return statement
+// Assign
+// Variable: puntosDeclaracion
 // Visiting expression
 // AddSub
 // Visiting left
-// Variable: n
-// Offset: 0
-MOV x0, #24
-SUB x0, x29, x0
+// Variable: puntosDeclaracion
+// Offset: 16
+MOV x0, #16
+ADD x0, sp, x0
 LDR x0, [x0, #0]
 STR x0, [SP, #-8]!
 // Visiting right
@@ -59,21 +1184,957 @@ ADD x0, x0, x1
 STR x0, [SP, #-8]!
 // Popping object from stack
 LDR x0, [SP], #8
-MOV x1, #32
-SUB x1, x29, x1
+MOV x1, #16
+ADD x1, sp, x1
 STR x0, [x1, #0]
-B L0
-// End of return statement
-B L2
-L1:
+STR x0, [SP, #-8]!
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+// Print statement
+// Visiting expression
+// Constant: OK Declaración explícita: correcto
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #79
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #75
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #68
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #243
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #120
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #112
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #237
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+B L1
+L0:
 // Visiting else block
+// Visiting block
+// Print statement
+// Visiting expression
+// Constant: X Declaración explícita: incorrecto
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #88
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #68
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #243
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #120
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #112
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #237
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+L1:
+// Print statement
+// Visiting expression
+// Constant: Declaración sin valor
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #68
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #243
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #118
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Variable: enteroSinValor
+// Variable without initialization
+MOV x0, #0
+STR x0, [SP, #-8]!
+// Variable: decimalSinValor
+// Variable without initialization
+MOVZ X0, #0, LSL #0
+MOVK X0, #0, LSL #16
+MOVK X0, #0, LSL #32
+MOVK X0, #0, LSL #48
+STR x0, [SP, #-8]!
+// Variable: textoSinValor
+// Variable without initialization
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Variable: booleanoSinValor
+// Variable without initialization
+MOV x0, #0
+STR x0, [SP, #-8]!
+// Print statement
+// Visiting expression
+// Constant: enteroSinValor:
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #83
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #86
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Variable: enteroSinValor
+// Offset: 24
+MOV x0, #24
+ADD x0, sp, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_integer
+// Print statement
+// Visiting expression
+// Constant: decimalSinValor:
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #100
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #109
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #83
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #86
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Variable: decimalSinValor
+// Offset: 16
+MOV x0, #16
+ADD x0, sp, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Popping expression
+// Popping object from stack
+LDR d0, [SP], #8
+BL print_double
+// Print statement
+// Visiting expression
+// Constant: textoSinValor:
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #120
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #83
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #86
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Variable: textoSinValor
+// Offset: 8
+MOV x0, #8
+ADD x0, sp, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Constant: booleanoSinValor:
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #98
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #83
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #86
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Print statement
+// Visiting expression
+// Variable: booleanoSinValor
+// Offset: 0
+MOV x0, #0
+ADD x0, sp, x0
+LDR x0, [x0, #0]
+STR x0, [SP, #-8]!
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_boolean
 // If statement
 // Equality
 // Visiting left
-// Variable: n
-// Offset: 0
+// Variable: enteroSinValor
+// Offset: 24
 MOV x0, #24
-SUB x0, x29, x0
+ADD x0, sp, x0
 LDR x0, [x0, #0]
 STR x0, [SP, #-8]!
 // Visiting right
@@ -93,20 +2154,18 @@ STR x0, [SP, #-8]!
 // Pushing result
 // Popping object from stack
 LDR x0, [SP], #8
-CBZ x0, L3
+CBZ x0, L2
 // Visiting if block
 // Visiting block
-// Return statement
+// Assign
+// Variable: puntosDeclaracion
 // Visiting expression
-MOV x0, #16
-SUB sp, sp, x0
-// Visiting args
 // AddSub
 // Visiting left
-// Variable: m
-// Offset: 8
-MOV x0, #16
-SUB x0, x29, x0
+// Variable: puntosDeclaracion
+// Offset: 48
+MOV x0, #48
+ADD x0, sp, x0
 LDR x0, [x0, #0]
 STR x0, [SP, #-8]!
 // Visiting right
@@ -118,209 +2177,634 @@ STR x0, [SP, #-8]!
 LDR x0, [SP], #8
 // Popping object from stack
 LDR x1, [SP], #8
-SUB x0, x1, x0
+ADD x0, x0, x1
 // Pushing result
 STR x0, [SP, #-8]!
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-MOV x0, #32
-ADD sp, sp, x0
-MOV x0, #8
-SUB x0, sp, x0
-ADR x1, L5
-STR x1, [SP, #-8]!
-STR x29, [SP, #-8]!
-ADD x29, x0, xzr
-MOV x0, #24
-SUB sp, sp, x0
-// Calling function: akerman
-BL akerman
-// Function call: akerman
-L5:
-MOV x4, #32
-SUB x4, x29, x4
-LDR x4, [x4, #0]
-MOV x1, #8
-SUB x1, x29, x1
-LDR x29, [x1, #0]
-MOV x0, #40
-ADD sp, sp, x0
-STR x4, [SP, #-8]!
-// End of function call: akerman
 // Popping object from stack
 LDR x0, [SP], #8
-MOV x1, #32
-SUB x1, x29, x1
+MOV x1, #48
+ADD x1, sp, x1
 STR x0, [x1, #0]
-B L0
-// End of return statement
-// Removing 8 bytes from stack
-MOV x0, #8
-ADD sp, sp, x0
-// New stack pointer: 
-B L4
-L3:
-// Visiting else block
-// Visiting block
-// Return statement
-// Visiting expression
-MOV x0, #16
-SUB sp, sp, x0
-// Visiting args
-// AddSub
-// Visiting left
-// Variable: m
-// Offset: 0
-MOV x0, #0
-SUB x0, x29, x0
-LDR x0, [x0, #0]
 STR x0, [SP, #-8]!
-// Visiting right
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-// Popping operands
+// Popping expression
 // Popping object from stack
 LDR x0, [SP], #8
-// Popping object from stack
-LDR x1, [SP], #8
-SUB x0, x1, x0
-// Pushing result
-STR x0, [SP, #-8]!
-MOV x0, #16
-SUB sp, sp, x0
-// Visiting args
-// Variable: m
-// Offset: 0
-MOV x0, #0
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// AddSub
-// Visiting left
-// Variable: n
-// Offset: 24
-MOV x0, #24
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// Visiting right
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-// Popping operands
-// Popping object from stack
-LDR x0, [SP], #8
-// Popping object from stack
-LDR x1, [SP], #8
-SUB x0, x1, x0
-// Pushing result
-STR x0, [SP, #-8]!
-MOV x0, #32
-ADD sp, sp, x0
-MOV x0, #8
-SUB x0, sp, x0
-ADR x1, L7
-STR x1, [SP, #-8]!
-STR x29, [SP, #-8]!
-ADD x29, x0, xzr
-MOV x0, #24
-SUB sp, sp, x0
-// Calling function: akerman
-BL akerman
-// Function call: akerman
-L7:
-MOV x4, #32
-SUB x4, x29, x4
-LDR x4, [x4, #0]
-MOV x1, #8
-SUB x1, x29, x1
-LDR x29, [x1, #0]
-MOV x0, #40
-ADD sp, sp, x0
-STR x4, [SP, #-8]!
-// End of function call: akerman
-MOV x0, #32
-ADD sp, sp, x0
-MOV x0, #8
-SUB x0, sp, x0
-ADR x1, L6
-STR x1, [SP, #-8]!
-STR x29, [SP, #-8]!
-ADD x29, x0, xzr
-MOV x0, #24
-SUB sp, sp, x0
-// Calling function: akerman
-BL akerman
-// Function call: akerman
-L6:
-MOV x4, #32
-SUB x4, x29, x4
-LDR x4, [x4, #0]
-MOV x1, #8
-SUB x1, x29, x1
-LDR x29, [x1, #0]
-MOV x0, #40
-ADD sp, sp, x0
-STR x4, [SP, #-8]!
-// End of function call: akerman
-// Popping object from stack
-LDR x0, [SP], #8
-MOV x1, #32
-SUB x1, x29, x1
-STR x0, [x1, #0]
-B L0
-// End of return statement
-L4:
-L2:
-L0:
-ADD x0, x29, xzr
-LDR x30, [x0, #0]
-BR x30
-// End of function: akerman
-// Popping object from stack
-// Popping object from stack
 // Print statement
 // Visiting expression
-MOV x0, #16
-SUB sp, sp, x0
-// Visiting args
-// Constant: 3
-MOV x0, #3
-STR x0, [SP, #-8]!
-// Constant: 4
-MOV x0, #4
-STR x0, [SP, #-8]!
-MOV x0, #32
-ADD sp, sp, x0
-MOV x0, #8
-SUB x0, sp, x0
-ADR x1, L8
-STR x1, [SP, #-8]!
-STR x29, [SP, #-8]!
-ADD x29, x0, xzr
-MOV x0, #24
-SUB sp, sp, x0
-// Calling function: akerman
-BL akerman
-// Function call: akerman
-L8:
-MOV x4, #32
-SUB x4, x29, x4
-LDR x4, [x4, #0]
-MOV x1, #8
-SUB x1, x29, x1
-LDR x29, [x1, #0]
-MOV x0, #40
-ADD sp, sp, x0
-STR x4, [SP, #-8]!
-// End of function call: akerman
+// Constant: OK Declaración sin valor: correcto
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #79
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #75
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #68
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #243
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #118
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
 // Popping expression
 // Popping object from stack
 LDR x0, [SP], #8
 MOV X0, x0
-BL print_integer
+BL print_string
+B L3
+L2:
+// Visiting else block
+// Visiting block
+// Print statement
+// Visiting expression
+// Constant: X Declaración sin valor: incorrecto
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #88
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #68
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #243
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #118
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #58
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+L3:
+// Print statement
+// Visiting expression
+// Constant: Declaración con inferencia de tipo
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #68
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #108
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #243
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #102
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #114
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #110
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #99
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #97
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #100
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #101
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #32
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #116
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #112
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Popping expression
+// Popping object from stack
+LDR x0, [SP], #8
+MOV X0, x0
+BL print_string
+// Variable: enteroInferido
+// Constant: 100
+MOV x0, #100
+STR x0, [SP, #-8]!
+// Variable: decimalInferido
+// Constant: 2.71
+MOVZ X0, #18350, LSL #0
+MOVK X0, #31457, LSL #16
+MOVK X0, #44564, LSL #32
+MOVK X0, #16389, LSL #48
+STR x0, [SP, #-8]!
+// Pushing float constant: 2.71
+// Variable: textoInferido
+// Constant: Adios!
+STR x10, [SP, #-8]!
+// Pushing string array (chars) to heap
+MOV w0, #65
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #100
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #105
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #111
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #115
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #33
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Pushing string array (chars) to heap
+MOV w0, #0
+STRB w0, [x10]
+MOV x0, #1
+ADD x10, x10, x0
+// Variable: booleanoInferido
+// Constant: False
+MOV x0, #0
+STR x0, [SP, #-8]!
 MOV x0, #0
 MOV x8, #93
 SVC #0
@@ -328,287 +2812,59 @@ SVC #0
 
 
  // Functions
-// Function declaration: akerman
-akerman:
-// If statement
-// Equality
-// Visiting left
-// Variable: m
-// Offset: 8
-MOV x0, #16
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// Visiting right
-// Constant: 0
-MOV x0, #0
-STR x0, [SP, #-8]!
-// Popping operands
-// Popping object from stack
-LDR x0, [SP], #8
-// Popping object from stack
-LDR x1, [SP], #8
-CMP x1, x0
-// Pushing result
-CSET x0, EQ
-// Pushing result
-STR x0, [SP, #-8]!
-// Pushing result
-// Popping object from stack
-LDR x0, [SP], #8
-CBZ x0, L1
-// Visiting if block
-// Visiting block
-// Return statement
-// Visiting expression
-// AddSub
-// Visiting left
-// Variable: n
-// Offset: 0
-MOV x0, #24
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// Visiting right
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-// Popping operands
-// Popping object from stack
-LDR x0, [SP], #8
-// Popping object from stack
-LDR x1, [SP], #8
-ADD x0, x0, x1
-// Pushing result
-STR x0, [SP, #-8]!
-// Popping object from stack
-LDR x0, [SP], #8
-MOV x1, #32
-SUB x1, x29, x1
-STR x0, [x1, #0]
-B L0
-// End of return statement
-B L2
-L1:
-// Visiting else block
-// If statement
-// Equality
-// Visiting left
-// Variable: n
-// Offset: 0
-MOV x0, #24
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// Visiting right
-// Constant: 0
-MOV x0, #0
-STR x0, [SP, #-8]!
-// Popping operands
-// Popping object from stack
-LDR x0, [SP], #8
-// Popping object from stack
-LDR x1, [SP], #8
-CMP x1, x0
-// Pushing result
-CSET x0, EQ
-// Pushing result
-STR x0, [SP, #-8]!
-// Pushing result
-// Popping object from stack
-LDR x0, [SP], #8
-CBZ x0, L3
-// Visiting if block
-// Visiting block
-// Return statement
-// Visiting expression
-MOV x0, #16
-SUB sp, sp, x0
-// Visiting args
-// AddSub
-// Visiting left
-// Variable: m
-// Offset: 8
-MOV x0, #16
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// Visiting right
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-// Popping operands
-// Popping object from stack
-LDR x0, [SP], #8
-// Popping object from stack
-LDR x1, [SP], #8
-SUB x0, x1, x0
-// Pushing result
-STR x0, [SP, #-8]!
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-MOV x0, #32
-ADD sp, sp, x0
-MOV x0, #8
-SUB x0, sp, x0
-ADR x1, L5
-STR x1, [SP, #-8]!
-STR x29, [SP, #-8]!
-ADD x29, x0, xzr
-MOV x0, #24
-SUB sp, sp, x0
-// Calling function: akerman
-BL akerman
-// Function call: akerman
-L5:
-MOV x4, #32
-SUB x4, x29, x4
-LDR x4, [x4, #0]
-MOV x1, #8
-SUB x1, x29, x1
-LDR x29, [x1, #0]
-MOV x0, #40
-ADD sp, sp, x0
-STR x4, [SP, #-8]!
-// End of function call: akerman
-// Popping object from stack
-LDR x0, [SP], #8
-MOV x1, #32
-SUB x1, x29, x1
-STR x0, [x1, #0]
-B L0
-// End of return statement
-// Removing 8 bytes from stack
-MOV x0, #8
-ADD sp, sp, x0
-// New stack pointer: 
-B L4
-L3:
-// Visiting else block
-// Visiting block
-// Return statement
-// Visiting expression
-MOV x0, #16
-SUB sp, sp, x0
-// Visiting args
-// AddSub
-// Visiting left
-// Variable: m
-// Offset: 0
-MOV x0, #0
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// Visiting right
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-// Popping operands
-// Popping object from stack
-LDR x0, [SP], #8
-// Popping object from stack
-LDR x1, [SP], #8
-SUB x0, x1, x0
-// Pushing result
-STR x0, [SP, #-8]!
-MOV x0, #16
-SUB sp, sp, x0
-// Visiting args
-// Variable: m
-// Offset: 0
-MOV x0, #0
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// AddSub
-// Visiting left
-// Variable: n
-// Offset: 24
-MOV x0, #24
-SUB x0, x29, x0
-LDR x0, [x0, #0]
-STR x0, [SP, #-8]!
-// Visiting right
-// Constant: 1
-MOV x0, #1
-STR x0, [SP, #-8]!
-// Popping operands
-// Popping object from stack
-LDR x0, [SP], #8
-// Popping object from stack
-LDR x1, [SP], #8
-SUB x0, x1, x0
-// Pushing result
-STR x0, [SP, #-8]!
-MOV x0, #32
-ADD sp, sp, x0
-MOV x0, #8
-SUB x0, sp, x0
-ADR x1, L7
-STR x1, [SP, #-8]!
-STR x29, [SP, #-8]!
-ADD x29, x0, xzr
-MOV x0, #24
-SUB sp, sp, x0
-// Calling function: akerman
-BL akerman
-// Function call: akerman
-L7:
-MOV x4, #32
-SUB x4, x29, x4
-LDR x4, [x4, #0]
-MOV x1, #8
-SUB x1, x29, x1
-LDR x29, [x1, #0]
-MOV x0, #40
-ADD sp, sp, x0
-STR x4, [SP, #-8]!
-// End of function call: akerman
-MOV x0, #32
-ADD sp, sp, x0
-MOV x0, #8
-SUB x0, sp, x0
-ADR x1, L6
-STR x1, [SP, #-8]!
-STR x29, [SP, #-8]!
-ADD x29, x0, xzr
-MOV x0, #24
-SUB sp, sp, x0
-// Calling function: akerman
-BL akerman
-// Function call: akerman
-L6:
-MOV x4, #32
-SUB x4, x29, x4
-LDR x4, [x4, #0]
-MOV x1, #8
-SUB x1, x29, x1
-LDR x29, [x1, #0]
-MOV x0, #40
-ADD sp, sp, x0
-STR x4, [SP, #-8]!
-// End of function call: akerman
-// Popping object from stack
-LDR x0, [SP], #8
-MOV x1, #32
-SUB x1, x29, x1
-STR x0, [x1, #0]
-B L0
-// End of return statement
-L4:
-L2:
-L0:
-ADD x0, x29, xzr
-LDR x30, [x0, #0]
-BR x30
-// End of function: akerman
-// Popping object from stack
-// Popping object from stack
 
 
 
  // Standard Library
+
+//--------------------------------------------------------------
+// print_string - Prints a null-terminated string to stdout
+//
+// Input:
+//   x0 - The address of the null-terminated string to print
+//--------------------------------------------------------------
+print_string:
+    // Save link register and other registers we'll use
+    stp     x29, x30, [sp, #-16]!
+    stp     x19, x20, [sp, #-16]!
+    
+    // x19 will hold the string address
+    mov     x19, x0
+    
+print_loop:
+    // Load a byte from the string
+    ldrb    w20, [x19]
+    
+    // Check if it's the null terminator (0)
+    cbz     w20, print_done
+    
+    // Prepare for write syscall
+    mov     x0, #1              // File descriptor: 1 for stdout
+    mov     x1, x19             // Address of the character to print
+    mov     x2, #1              // Length: 1 byte
+    mov     x8, #64             // syscall: write (64 on ARM64)
+    svc     #0                  // Make the syscall
+    
+    // Move to the next character
+    add     x19, x19, #1
+    
+    // Continue the loop
+    b       print_loop
+    
+print_done:
+    // Restore saved registers
+    ldp     x19, x20, [sp], #16
+    ldp     x29, x30, [sp], #16
+    // Print newline
+    mov x0, #1
+    adr x1, newline_char
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
+    ret
+    // Return to the caller
+    
 
 //--------------------------------------------------------------
 // print_integer - Prints a signed integer to stdout
@@ -706,6 +2962,155 @@ print_result:
     ldp x21, x22, [sp], #16
     ldp x19, x20, [sp], #16
     ldp x29, x30, [sp], #16    // Restore frame pointer and link register
+
+    // Print newline
+    mov x0, #1
+    adr x1, newline_char
+    mov x2, #1
+    mov w8, #64
+    svc #0
+
     ret                        // Return to caller
     
+
+print_boolean:
+    stp x29, x30, [sp, #-16]!
+    cmp x0, #0
+    beq false_label
+    // Print 'true'
+    adr x1, true_str
+    mov x2, #4
+    b print_end
+false_label:
+    // Print 'false'
+    adr x1, false_str
+    mov x2, #5
+print_end:
+    mov x0, #1
+    mov x8, #64
+    svc #0
+    ldp x29, x30, [sp], #16
+    // Print newline
+    mov x0, #1
+    adr x1, newline_char
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
+    ret
+
+//--------------------------------------------------------------
+// print_double - Prints a double precision float to stdout
+//
+// Input:
+//   d0 - The double value to print
+//--------------------------------------------------------------
+print_double:
+    // Save context
+    stp x29, x30, [sp, #-16]!    
+    stp x19, x20, [sp, #-16]!
+    stp x21, x22, [sp, #-16]!
+    stp x23, x24, [sp, #-16]!
+    
+    // Check if number is negative
+    fmov x19, d0
+    tst x19, #(1 << 63)       // Comprueba el bit de signo
+    beq skip_minus
+
+    // Print minus sign
+    mov x0, #1
+    adr x1, minus_sign
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
+    // Make value positive
+    fneg d0, d0
+
+skip_minus:
+    // Convert integer part
+    fcvtzs x0, d0             // x0 = int(d0)
+    bl print_integer
+
+    // Print dot '.'
+    mov x0, #1
+    adr x1, dot_char
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
+    // Get fractional part: frac = d0 - float(int(d0))
+    frintm d4, d0             // d4 = floor(d0)
+    fsub d2, d0, d4           // d2 = d0 - floor(d0) (exact fraction)
+
+    // Para 2.5, d2 debe ser exactamente 0.5
+
+    // Multiplicar por 1_000_000 (6 decimales)
+    movz x1, #0x000F, lsl #16
+    movk x1, #0x4240, lsl #0   // x1 = 1000000
+    scvtf d3, x1              // d3 = 1000000.0
+    fmul d2, d2, d3           // d2 = frac * 1_000_000
+    
+    // Redondear al entero más cercano para evitar errores de precisión
+    frintn d2, d2             // d2 = round(d2)
+    fcvtzs x0, d2             // x0 = int(d2)
+
+    // Imprimir ceros a la izquierda si es necesario
+    mov x20, x0               // x20 = fracción entera
+    movz x21, #0x0001, lsl #16
+    movk x21, #0x86A0, lsl #0  // x21 = 100000
+    mov x22, #0               // inicializar contador de ceros
+    mov x23, #10              // constante para división
+
+leading_zero_loop:
+    udiv x24, x20, x21        // x24 = x20 / x21
+    cbnz x24, done_leading_zeros  // Si hay un dígito no cero, salir del bucle
+
+    // Imprimir '0'
+    mov x0, #1
+    adr x1, zero_char
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
+    udiv x21, x21, x23        // x21 /= 10
+    add x22, x22, #1          // incrementar contador de ceros
+    cmp x21, #0               // verificar si llegamos al final
+    beq print_remaining       // si divisor es 0, saltar a imprimir el resto
+    b leading_zero_loop
+
+done_leading_zeros:
+    // Print the remaining fractional part
+    mov x0, x20
+    bl print_integer
+    b exit_function
+
+print_remaining:
+    // Caso especial cuando la parte fraccionaria es 0 después de imprimir ceros
+    cmp x20, #0
+    bne exit_function
+    
+    // Ya imprimimos todos los ceros necesarios
+    // No hace falta imprimir nada más
+
+exit_function:
+    // Restore context
+    ldp x23, x24, [sp], #16
+    ldp x21, x22, [sp], #16
+    ldp x19, x20, [sp], #16
+    ldp x29, x30, [sp], #16
+    // Print newline
+    mov x0, #1
+    adr x1, newline_char
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
+    ret
+    
+newline_char: .ascii "\n"
 minus_sign: .ascii "-"
+true_str: .ascii "true"
+false_str: .ascii "false"
+dot_char: .ascii "."
+zero_char: .ascii "0"

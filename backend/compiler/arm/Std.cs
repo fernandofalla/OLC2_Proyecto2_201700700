@@ -11,16 +11,27 @@ public class StandarLibrary
         if (function == "print_integer")
         {
             UsedSymbols.Add("minus_sign");
+            UsedSymbols.Add("newline_char");
         }
         else if (function == "print_double")
         {
             UsedSymbols.Add("dot_char");
             UsedSymbols.Add("zero_char");
+            UsedSymbols.Add("newline_char");
         }
-        else if(function == "print_boolean")
+        else if (function == "print_boolean")
         {
             UsedSymbols.Add("true_str");
             UsedSymbols.Add("false_str");
+            UsedSymbols.Add("newline_char");
+        }
+        else if (function == "print_string")
+        {
+            UsedSymbols.Add("newline_char");
+        }
+        else if (function == "print_char")
+        {
+            UsedSymbols.Add("newline_char");
         }
     }
     public string GetFunctionDefinitions()
@@ -149,6 +160,14 @@ print_result:
     ldp x21, x22, [sp], #16
     ldp x19, x20, [sp], #16
     ldp x29, x30, [sp], #16    // Restore frame pointer and link register
+
+    // Print newline
+    mov x0, #1
+    adr x1, newline_char
+    mov x2, #1
+    mov w8, #64
+    svc #0
+
     ret                        // Return to caller
     "
     },
@@ -193,6 +212,13 @@ print_done:
     // Restore saved registers
     ldp     x19, x20, [sp], #16
     ldp     x29, x30, [sp], #16
+    // Print newline
+    mov x0, #1
+    adr x1, newline_char
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
     ret
     // Return to the caller
     "},
@@ -298,6 +324,13 @@ exit_function:
     ldp x21, x22, [sp], #16
     ldp x19, x20, [sp], #16
     ldp x29, x30, [sp], #16
+    // Print newline
+    mov x0, #1
+    adr x1, newline_char
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
     ret
     "},{
     "print_char", @"
@@ -330,6 +363,13 @@ print_end:
     mov x8, #64
     svc #0
     ldp x29, x30, [sp], #16
+    // Print newline
+    mov x0, #1
+    adr x1, newline_char
+    mov x2, #1
+    mov x8, #64
+    svc #0
+
     ret"
 }
     };
@@ -340,6 +380,7 @@ print_end:
         { "dot_char", @"dot_char: .ascii "".""" },
         { "zero_char", @"zero_char: .ascii ""0""" },
         { "true_str", @"true_str: .ascii ""true""" },
-        { "false_str", @"false_str: .ascii ""false""" }
+        { "false_str", @"false_str: .ascii ""false""" },
+        { "newline_char", @"newline_char: .ascii ""\n""" }
     };
 }

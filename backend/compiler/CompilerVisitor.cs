@@ -82,6 +82,15 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         var id = context.ID().GetText();
         c.Comment("Variable: " + id);
 
+        if(context.expr() == null)
+        {
+            c.Comment("Variable without initialization");
+            var tipo = context.tipo().GetText();
+            setDefaultValue(tipo);
+            c.TagObject(id);
+            return null;
+        }
+
         Visit(context.expr());
 
         if (insideFunction != null)
@@ -103,6 +112,33 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         c.TagObject(id);
 
         return null;
+    }
+
+    public void setDefaultValue(string tipo)
+    {
+        switch (tipo)
+        {
+            case "int":
+                var intObject = c.IntObject();
+                c.PushConstant(intObject, 0);
+                break;
+            case "float64":
+                var floatObject = c.FloatObject();
+                c.PushConstant(floatObject, 0.0);
+                break;
+            case "string":
+                var stringObject = c.StringObject();
+                c.PushConstant(stringObject, "");
+                break;
+            case "bool":
+                var boolObject = c.BoolObject();
+                c.PushConstant(boolObject, false);
+                break;
+            case "rune":
+                var charObject = c.CharObject();
+                c.PushConstant(charObject, '\0');
+                break;
+        }
     }
 
     public override Object? VisitImplicitVarDcl(LanguageParser.ImplicitVarDclContext context)

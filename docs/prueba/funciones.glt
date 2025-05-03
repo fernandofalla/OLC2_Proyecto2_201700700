@@ -141,15 +141,6 @@ func hanoi(n int, origen string, auxiliar string, destino string) {
 		fmt.Println("X Función ackermann: incorrecto")
 	}
 
-    
-
-	puntosFuncionesSimples = 5
-	puntosFuncionesParametros = 5
-	puntosFuncionesRecursivas = 7
-    puntosParseFloat := 0
-    puntosAtoi := 0
-    puntosTypeOf := 0
-
 	/*
 	// 4. strconv.Atoi (2 punto)
 	fmt.Println("\n==== strconv.Atoi ====")
@@ -165,7 +156,14 @@ func hanoi(n int, origen string, auxiliar string, destino string) {
 	} else {
 		fmt.Println("X strconv.Atoi: incorrecto")
 	}
-	
+	*/
+	puntosFuncionesSimples = 5
+	puntosFuncionesParametros = 5
+	puntosFuncionesRecursivas = 7
+    puntosParseFloat := 0
+    puntosAtoi := 0
+    puntosTypeOf := 0
+	/*
 
 	// 5. strconv.ParseFloat (2 punto)
 	fmt.Println("\n==== strconv.ParseFloat ====")

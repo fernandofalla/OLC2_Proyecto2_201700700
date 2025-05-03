@@ -89,3 +89,28 @@ Al ingresar a la url se mostrara la aplicación **GoLight**
 #### Mostrar errores
 
 ![frontend_error.png](./assets/frontend_error.png)
+
+
+## Uso - Qemu
+
+- Se debe generar el ./program con el comando **make**
+
+```
+AS = aarch64-linux-gnu-as
+LD = aarch64-linux-gnu-ld
+CPU = cortex-a57
+
+TARGET = program
+
+# Ensamblar y enlazar
+$(TARGET): $(TARGET).o
+	$(LD) $< -o $@
+	rm -f $<
+
+%.o: %.s
+	$(AS) -mcpu=$(CPU) $< -o $@
+
+# Limpieza
+clean:
+	rm -f *.o $(TARGET)
+```

@@ -27,6 +27,8 @@ git clone https://github.com/fernandofalla/OLC2_Proyecto1_201700700.git
 
 ## Uso
 
+## Fase de analisis
+
 Para ejecutar **GoLight** se debe situar tanto en la raiz del frontend como del backend
  - frontend
 ```
@@ -39,11 +41,20 @@ cd backend
 dotnet watch run
 ```
 
+## Fase de sintesis
+
+La ejecucion es la misma lo que cambie es que ahora hay generacion de codigo intermedio.
+
+## Flujo Fase de analisis y sintesis
+
+![flujo.png](./assets/flujo.png)
+
+
 La apliacion es intuitiva por lo que no se detalla a profundidad cada funcionalidad
 
 ![frontend_inicio.png](./assets/frontend_inicio.png)
 
-## Mantenimiento y actualización
+## Mantenimiento y actualización - Fase de analisis
 
 ### Gramatica
 
@@ -116,3 +127,20 @@ Este archivo define el controlador **Compile.cs** dentro de la API **backend/Con
  - Manejo de errores: Proporciona mecanismos para capturar y devolver errores léxicos, sintácticos y semánticos.
 
  - Proporciona una salida si no hubo ninguna excepción.
+
+
+ ## Mantenimiento y actualización - Fase de sintesis
+
+ #### Flujo - Qemu
+
+ - Recepcion del codigo fuente
+
+ - Consulta de información
+
+ - Integración con consola y traduccion
+
+ - Manejo de errores
+
+ - Proporciona una salida que debe ser utilizada por qemu
+
+ ![qemu.png](./assets/qemu.png)

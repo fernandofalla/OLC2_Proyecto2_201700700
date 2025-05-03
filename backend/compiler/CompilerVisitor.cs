@@ -1299,20 +1299,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
     // VisitStringToInt
     public override Object? VisitStringToInt(LanguageParser.StringToIntContext context)
-    {
-        c.Comment("String to int");
-        Visit(context.expr());
-
-        var loopLabel = c.GetLabel();
-        var endLabel = c.GetLabel();
-
-        c.Mov(Register.X1, 0);
-
-        c.SetLabel(loopLabel);
-
-
-
-
+    {        
         return null;
     }
 

@@ -255,6 +255,13 @@ public interface ILanguageVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitItemAssign([NotNull] LanguageParser.ItemAssignContext context);
 	/// <summary>
+	/// Visit a parse tree produced by the <c>StringToInt</c>
+	/// labeled alternative in <see cref="LanguageParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStringToInt([NotNull] LanguageParser.StringToIntContext context);
+	/// <summary>
 	/// Visit a parse tree produced by the <c>Parens</c>
 	/// labeled alternative in <see cref="LanguageParser.expr"/>.
 	/// </summary>

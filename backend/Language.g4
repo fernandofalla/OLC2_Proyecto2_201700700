@@ -31,7 +31,7 @@ functionStructDcl: 'func' '(' ID ID ')' ID '(' params? ')' tipo? '{' dcl* '}'			
 ;
 
 stmt: expr ';'?                 														# ExprStmt 
-    | 'fmt.Println(' call ')'   													# PrintStmt		
+    | 'fmt.Println(' expr ')'   													# PrintStmt		
 	| '{' dcl* '}'																	# BlockStmt
 	| 'if' expr stmt ('else' stmt)?											# IfStmt
 	| 'switch' expr '{' caseBlock+ defaultBlock? '}'								# SwitchStmt
@@ -86,6 +86,7 @@ expr:
 	| 'strings' '.' 'Join' '(' ID ',' expr ')'    # SliceJoin
 	| 'len' '(' expr ')'						# SliceLen
 	| 'append' '(' ID ',' expr ')'			# SliceAppend	
+	| 'strconv.Atoi' '(' expr ')'			# StringToInt
 	| ID '[' expr ']'						# SliceAccess
 	| ID '[' expr ']' '[' expr ']'			# MatrixAccess
 	| ID									# Identifier

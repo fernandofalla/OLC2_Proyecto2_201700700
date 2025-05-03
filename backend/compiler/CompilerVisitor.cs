@@ -153,7 +153,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         Visit(context.expr());
 
         if (insideFunction != null)
-        {            
+        {
             var localObject = c.GetFrameLocal(framePointerOffset);
             // Console.WriteLine("framePointerOffset: " + framePointerOffset);
             var valueObject = c.PopObject(Register.X0);
@@ -412,14 +412,14 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
 
         c.Comment("Popping operands");
         var rightType = c.TopObject().Type;
-        var leftType = c.TopObject().Type;        
+        var leftType = c.TopObject().Type;
         // var isRightDouble = c.TopObject().Type == StackObject.StackObjectType.Float;
         var right = c.PopObject((rightType == StackObject.StackObjectType.Float) ? Register.D0 : Register.X0); // x1 = 2
         // var isLeftDouble = c.TopObject().Type == StackObject.StackObjectType.Float;
         var left = c.PopObject((leftType == StackObject.StackObjectType.Float) ? Register.D1 : Register.X1); // x0 = 1 
 
 
-        if(leftType == StackObject.StackObjectType.String && rightType == StackObject.StackObjectType.String)
+        if (leftType == StackObject.StackObjectType.String && rightType == StackObject.StackObjectType.String)
         {
             c.Comment("Concatenating strings");
             c.Concat_string(Register.X0, Register.X1);
@@ -639,7 +639,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         c.Comment("Logical");
         var operation = context.op.Text;
 
-        if(operation == "!")
+        if (operation == "!")
         {
             c.Comment("Visiting expression");
             Visit(context.expr(0));
@@ -692,7 +692,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
                 c.Beq(truelabel); // If x1 == 1, go to end
                 c.Mov(Register.X0, 0);
                 c.B(endlabel);
-                break;            
+                break;
         }
 
         c.SetLabel(truelabel);
@@ -914,7 +914,7 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         {
             c.Comment("Visiting args");
             var exprs = call.args().expr();
-            argCount = exprs.Length;            
+            argCount = exprs.Length;
             foreach (var param in call.args().expr())
             {
                 Visit(param);
@@ -1039,11 +1039,89 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
     {
         c.Comment("Increment");
 
+        var id = context.ID().GetText();
+        c.Comment("Variable: " + id);
+
+        var (offset, obj) = c.GetObject(id);
+        c.Comment("Offset: " + offset);
+
+        if (insideFunction != null)
+        {
+            // Calcular dirección
+            c.Mov(Register.X1, obj.Offset * 8);
+            c.Sub(Register.X1, Register.FP, Register.X1);
+
+            // Cargar valor actual
+            c.Ldr(Register.X0, Register.X1);
+
+            // Incrementar
+            c.Add(Register.X0, Register.X0, "#1");
+
+            // Guardar nuevo valor
+            c.Str(Register.X0, Register.X1);
+        }
+        else
+        {
+            // Calcular dirección
+            c.Mov(Register.X1, offset);
+            c.Add(Register.X1, Register.SP, Register.X1);
+
+            // Cargar valor actual
+            c.Ldr(Register.X0, Register.X1);
+
+            // Incrementar
+            c.Add(Register.X0, Register.X0, "#1");
+
+            // Guardar nuevo valor
+            c.Str(Register.X0, Register.X1);
+        }
+
+        // Poner en la pila el nuevo valor
+        c.Push(Register.X0);
+
+        // Clonar el objeto con su tipo
+        var newObject = c.CloneObject(obj);
+        newObject.Id = null;
+        c.PushObject(newObject);
+
         return null;
     }
 
     public override Object? VisitDecrement(LanguageParser.DecrementContext context)
     {
+        c.Comment("Decrement");
+
+        var id = context.ID().GetText();
+        c.Comment("Variable: " + id);
+
+        var (offset, obj) = c.GetObject(id);
+        c.Comment("Offset: " + offset);
+
+        if (insideFunction != null)
+        {
+            c.Mov(Register.X1, obj.Offset * 8);
+            c.Sub(Register.X1, Register.FP, Register.X1);
+
+            c.Ldr(Register.X0, Register.X1);
+            c.Sub(Register.X0, Register.X0, "#1");
+            c.Str(Register.X0, Register.X1);
+        }
+        else
+        {
+            c.Mov(Register.X1, offset);
+            c.Add(Register.X1, Register.SP, Register.X1);
+
+            c.Ldr(Register.X0, Register.X1);
+            c.Sub(Register.X0, Register.X0, "#1");
+            c.Str(Register.X0, Register.X1);
+        }
+
+        c.Push(Register.X0);
+
+        var newObject = c.CloneObject(obj);
+        newObject.Id = null;
+        c.PushObject(newObject);
+
         return null;
     }
 
@@ -1219,6 +1297,24 @@ public class CompilerVisitor : LanguageBaseVisitor<Object?>  // Cambiar int -> O
         return null;
     }
 
+    // VisitStringToInt
+    public override Object? VisitStringToInt(LanguageParser.StringToIntContext context)
+    {
+        c.Comment("String to int");
+        Visit(context.expr());
+
+        var loopLabel = c.GetLabel();
+        var endLabel = c.GetLabel();
+
+        c.Mov(Register.X1, 0);
+
+        c.SetLabel(loopLabel);
+
+
+
+
+        return null;
+    }
 
 
 }

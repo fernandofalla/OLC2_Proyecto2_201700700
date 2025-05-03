@@ -410,6 +410,18 @@ public interface ILanguageListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitItemAssign([NotNull] LanguageParser.ItemAssignContext context);
 	/// <summary>
+	/// Enter a parse tree produced by the <c>StringToInt</c>
+	/// labeled alternative in <see cref="LanguageParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterStringToInt([NotNull] LanguageParser.StringToIntContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>StringToInt</c>
+	/// labeled alternative in <see cref="LanguageParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitStringToInt([NotNull] LanguageParser.StringToIntContext context);
+	/// <summary>
 	/// Enter a parse tree produced by the <c>Parens</c>
 	/// labeled alternative in <see cref="LanguageParser.expr"/>.
 	/// </summary>

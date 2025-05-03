@@ -33,6 +33,10 @@ public class StandarLibrary
         {
             UsedSymbols.Add("newline_char");
         }
+        else if (function == "concat_cadena")
+        {
+            UsedSymbols.Add("newline_char");
+        }
     }
     public string GetFunctionDefinitions()
     {
@@ -346,7 +350,59 @@ print_end:
     ldp x29, x30, [sp], #16
 
     ret"
-}
+}, { "concat_cadena", @"
+//--------------------------------------------------------------
+// concat_cadena - Concatena dos cadenas terminadas en null
+//
+// Entradas:
+//   x0 - dirección de la cadena derecha
+//   x1 - dirección de la cadena izquierda
+// Salida:
+//   x0 - puntero a la nueva cadena concatenada (en el heap)
+//--------------------------------------------------------------
+concat_cadena:
+    // Guardar registros que usaremos
+    stp x29, x30, [sp, #-16]!
+    stp x19, x20, [sp, #-16]!
+    stp x21, x22, [sp, #-16]!
+
+    // Inicializar puntero del heap en x10 (HP)
+    mov x10, #0x10000000    // Aquí puedes definir una dirección inicial para el heap
+
+    // Copiar cadena izquierda (x1)
+copy_left:
+    ldrb w3, [x1]            // Cargar byte de la cadena izquierda
+    cbz w3, copy_right       // Si es null, saltar a la siguiente etapa
+    strb w3, [x10]           // Almacenar byte en el heap (usando x10 como puntero)
+    add x10, x10, #1         // Incrementar puntero del heap
+    add x1, x1, #1           // Avanzar puntero de la cadena izquierda
+    b copy_left              // Continuar con el siguiente byte
+
+copy_right:  // Copiar cadena derecha (x0)
+copy_right_loop:
+    ldrb w3, [x0]            // Cargar byte de la cadena derecha
+    cbz w3, write_null       // Si es null, saltar a la siguiente etapa
+    strb w3, [x10]           // Almacenar byte en el heap (usando x10 como puntero)
+    add x10, x10, #1         // Incrementar puntero del heap
+    add x0, x0, #1           // Avanzar puntero de la cadena derecha
+    b copy_right_loop        // Continuar con el siguiente byte
+
+write_null:  // Escribir terminador null
+    mov w3, #0               // Cargar el valor del terminador null
+    strb w3, [x10]           // Almacenar terminador en el heap
+    add x10, x10, #1         // Incrementar puntero del heap
+
+    // Resultado queda en x10
+    mov x0, x10              // El puntero a la nueva cadena concatenada está en x10
+
+    // Restaurar registros
+    ldp x21, x22, [sp], #16
+    ldp x19, x20, [sp], #16
+    ldp x29, x30, [sp], #16
+
+    ret                       // Retornar a la llamada
+" }
+
     };
 
     private readonly static Dictionary<string, string> Symbols = new Dictionary<string, string>

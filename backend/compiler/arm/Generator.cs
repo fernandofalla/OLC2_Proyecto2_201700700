@@ -280,9 +280,17 @@ public class ArmGenerator
     {
         instructions.Add($"LDR {rd}, [{rs1}, #{offset}]");
     }
+    public void Ldrb(string rd, string rs1)
+    {
+        instructions.Add($"LDRB {rd}, [{rs1}]");
+    }
 
     // General
     public void Mov(string rd, int imm)
+    {
+        instructions.Add($"MOV {rd}, #{imm}");
+    }
+     public void Mov(string rd, string imm)
     {
         instructions.Add($"MOV {rd}, #{imm}");
     }
@@ -407,6 +415,14 @@ public class ArmGenerator
         instructions.Add($"MOV X2, #1");
         instructions.Add($"MOV X8, #64");
         instructions.Add($"SVC #0");       
+    }
+
+    public void Concat_string(string rs1, string rs2)
+    {
+        stdLib.Use("concat_cadena");
+        instructions.Add($"MOV X0, {rs1}");
+        instructions.Add($"MOV X1, {rs2}");
+        instructions.Add($"BL concat_cadena");
     }
     public void PrintFloat()
     {

@@ -1,0 +1,31 @@
+# =========================
+# .NET / C# (Backend)
+# =========================
+**/bin/
+**/obj/
+backend/.antlr/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================
+# Node / Next.js (Frontend)
+# =========================
+**/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# IDEs y Editores
+# =========================
+.vscode/
+.vs/
+.idea/
+*.swp
+*.DS_Store
